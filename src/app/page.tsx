@@ -242,20 +242,22 @@ export default function Home() {
                 icon: "💡",
                 techs: ["Next.js", "Angular", "Blockchain", "Python", "Docker", "Smart Contracts", "Web3", "Solidity"],
                 githubLink: "https://github.com/JulianMbp/MTE.git"
-              },{
-                title: "MedFinder",
-                description: "Plataforma para el control de inventario de medicamentos.",
-                icon: "🏥💊",
-                techs: ["Python", "Next.js", "IA", "PostgreSQL"],
-                githubLink: "https://github.com/JulianMbp/Medicamentos.git"
-              },
+              },   
               {
                 title: "U2Group",
                 description: "Plataforma integral para gestión de proyectos y recursos, desarrollada con tecnologías modernas.",
                 icon: "🧑‍💻",
                 techs: ["TypeScript", "Python", "Next.js", "Django", "SQL"],
                 githubLink: "https://github.com/Pedroza22/U2Group"
-              }
+              },
+              {
+                title: "MedFinder",
+                description: "Plataforma para el control de inventario de medicamentos.",
+                icon: "🏥💊",
+                techs: ["Python", "Next.js", "IA", "PostgreSQL"],
+                githubLink: "https://github.com/JulianMbp/Medicamentos.git"
+              },
+
             ].map((project, index) => (
               <SwiperSlide key={index}>
                 <div
