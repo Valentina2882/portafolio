@@ -231,6 +231,13 @@ export default function Home() {
                 icon: "🏥💊",
                 techs: ["Python", "Next.js", "IA", "PostgreSQL"],
                 githubLink: "https://github.com/JulianMbp/Medicamentos.git"
+              },
+              {
+                title: "U2Group",
+                description: "Plataforma integral para gestión de proyectos y recursos, desarrollada con tecnologías modernas.",
+                icon: "🧑‍💻",
+                techs: ["TypeScript", "Python", "Next.js", "Django", "SQL"],
+                githubLink: "https://github.com/Pedroza22/U2Group"
               }
             ].map((project, index) => (
               <div
