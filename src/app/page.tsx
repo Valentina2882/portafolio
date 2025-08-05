@@ -372,14 +372,15 @@ export default function Home() {
           {/* Sección especial sobre análisis de datos */}
           <div className="mt-12 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-8 border border-purple-400/20">
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                🎯 Mi Pasión: <span className="text-purple-400">Análisis de Datos</span>
-              </h3>
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                Me encanta el campo del análisis de datos y siempre estoy buscando aprender más sobre técnicas avanzadas, 
-                machine learning y nuevas herramientas que me permitan extraer insights más profundos y crear 
-                visualizaciones más impactantes. ¡Es un campo que me apasiona y en el que quiero seguir creciendo!
-              </p>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              🎯 Mi Pasión: <span className="text-purple-400">Frontend y Análisis de Datos</span>
+            </h3>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Me encanta crear interfaces modernas, intuitivas y responsivas que generen una experiencia de usuario fluida y atractiva. 
+              Disfruto trabajar con frameworks como <span className="text-purple-400 font-semibold">Angular</span> y <span className="text-purple-400 font-semibold">Flutter</span>, aplicando buenas prácticas de diseño UI/UX.  
+              Al mismo tiempo, el <span className="text-purple-400 font-semibold">análisis de datos</span> es otra de mis pasiones: explorar, transformar y visualizar información para generar insights valiosos usando herramientas como Python, Pandas y Streamlit.  
+              ¡Ambos mundos me inspiran y quiero seguir creciendo en ellos!
+            </p>
             </div>
           </div>
         </div>
