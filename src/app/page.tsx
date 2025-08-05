@@ -3,10 +3,11 @@
 
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 import './swiper-custom.css'; // Importaré un archivo para estilos personalizados de Swiper
 
 export default function Home() {
@@ -169,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="sobre-mi" className="py-20 px-4">
+      <section id="sobre-mi" className="py-20 px-4 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
             Sobre <span className="text-purple-400">Mí</span>
@@ -186,14 +187,12 @@ export default function Home() {
             </div>
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                Soy una desarrolladora apasionada con experiencia en desarrollo full stack y análisis de datos. 
-                Me encanta resolver problemas complejos y crear soluciones innovadoras que impacten positivamente 
-                en la toma de decisiones empresariales.
+              Soy una desarrolladora full stack con una fuerte pasión por la tecnología, la analítica y el diseño.
+             Me motiva resolver retos complejos y construir soluciones inteligentes que transformen ideas en productos funcionales y con impacto real.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Mi experiencia abarca desde el desarrollo frontend y backend hasta el análisis de datos y 
-                visualización. Me fascina el campo del análisis de datos y siempre estoy buscando aprender 
-                nuevas técnicas y herramientas para extraer insights valiosos de los datos.
+              Combino habilidades en frontend y backend, con un enfoque especial en el desarrollo de APIs robustas, estructuras bien definidas y lógica de negocio eficiente. 
+              Disfruto crear interfaces modernas y responsivas que complementen un backend limpio, seguro y bien estructurado.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Full Stack Development', 'Data Analysis', 'Blockchain', 'Machine Learning', 'Data Visualization'].map((tech) => (
@@ -211,10 +210,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="proyectos" className="py-20 px-4 bg-black/20">
+      <section id="proyectos" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-            <span className="text-purple-100">Proyectos</span>
+            Mis <span className="text-purple-400">Proyectos</span>
           </h2>
           <Swiper
             modules={[Navigation, Pagination, A11y]}
@@ -260,41 +259,35 @@ export default function Home() {
 
             ].map((project, index) => (
               <SwiperSlide key={index}>
-                <div
-                  className="bg-gradient-to-br from-purple-900/60 to-slate-900/80 shadow-2xl shadow-purple-900/30 backdrop-blur-lg rounded-3xl p-8 border border-purple-400/20 hover:border-pink-400/40 transition-all duration-300 hover:scale-105 h-full flex flex-col group relative overflow-hidden"
-                >
-                  <div className="absolute -top-8 -right-8 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl z-0"></div>
-                  <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl z-0"></div>
-                  <div className="relative z-10 w-full h-48 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <div className="text-5xl drop-shadow-lg">{project.icon}</div>
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-all h-full flex flex-col">
+                  <div className="w-full h-32 bg-purple-500/20 rounded-xl mb-4 flex items-center justify-center">
+                    <div className="text-4xl">{project.icon}</div>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3 relative z-10 group-hover:text-purple-300 transition-colors duration-300">{project.title}</h3>
-                  <p className="text-gray-300 mb-4 relative z-10">
+                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                  <p className="text-gray-300 mb-4 flex-1">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4 relative z-10">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.techs.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs font-semibold shadow-sm group-hover:bg-pink-500/30 transition-colors duration-300"
+                        className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-3 mt-auto relative z-10">
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all text-center flex items-center justify-center gap-2 font-semibold shadow-md group-hover:scale-105"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                      </svg>
-                      Ver Código
-                    </a>
-                  </div>
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all text-center flex items-center justify-center gap-2 font-semibold"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                    </svg>
+                    Ver Código
+                  </a>
                 </div>
               </SwiperSlide>
             ))}
@@ -303,21 +296,37 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="habilidades" className="py-20 px-4">
+      <section id="habilidades" className="py-20 px-4 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
             Mis <span className="text-purple-400">Habilidades</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <Swiper
+            modules={[Navigation, Pagination, A11y, Autoplay]}
+            spaceBetween={32}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            className="!pb-16 skills-swiper"
+          >
             {[
               { 
                 category: 'Frontend', 
-                skills: ['Angular', 'React', 'Next.js', 'Tailwind CSS'],
+                skills: ['Angular', 'Flutter', 'React', 'Next.js', 'Tailwind CSS'],
                 icon: '🎨'
               },
               { 
                 category: 'Backend', 
-                skills: ['Python', 'JavaScript', 'Django', 'Flask', 'Node.js'],
+                skills: ['Python', 'JavaScript', 'NestJS', 'Django', 'Flask', 'Node.js'],
                 icon: '⚙️'
               },
               { 
@@ -340,26 +349,25 @@ export default function Home() {
                 skills: ['Algoritmos Predictivos', 'Scikit-learn', 'Data Mining'],
                 icon: '🤖'
               }
-            ].map((skillGroup) => (
-              <div
-                key={skillGroup.category}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-all"
-              >
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">{skillGroup.icon}</span>
-                  <h3 className="text-xl font-bold text-purple-400">{skillGroup.category}</h3>
+            ].map((skillGroup, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-all h-full">
+                  <div className="flex items-center mb-4">
+                    <span className="text-2xl mr-3">{skillGroup.icon}</span>
+                    <h3 className="text-xl font-bold text-purple-400">{skillGroup.category}</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {skillGroup.skills.map((skill) => (
+                      <li key={skill} className="text-gray-300 flex items-center">
+                        <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2">
-                  {skillGroup.skills.map((skill) => (
-                    <li key={skill} className="text-gray-300 flex items-center">
-                      <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
           
           {/* Sección especial sobre análisis de datos */}
           <div className="mt-12 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-8 border border-purple-400/20">
