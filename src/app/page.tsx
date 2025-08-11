@@ -179,8 +179,8 @@ export default function Home() {
             <div>
               <div className="w-full h-96 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-2xl overflow-hidden">
                 <img 
-                  src="/hack.jpg" 
-                  alt="Foto en evento de hackathon" 
+                  src="/zare.jpg" 
+                  alt="Foto de Zarella" 
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
@@ -216,11 +216,16 @@ export default function Home() {
             Mis <span className="text-purple-400">Proyectos</span>
           </h2>
           <Swiper
-            modules={[Navigation, Pagination, A11y]}
+            modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={32}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
             breakpoints={{
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 }
@@ -230,38 +235,62 @@ export default function Home() {
             {[
               {
                 title: "Modelos de Predicción de Precios de Casas",
-                description: "Aplicación para predecir el precio de una casa en base a sus características.",
+                description: "Aplicación que utiliza modelos de Machine Learning, como SVM y Regresión Lineal, para estimar el precio de una vivienda en función de sus características.",
                 icon: "🏠",
                 techs: ["Python", "Express", "SVM", "Regresión Lineal"],
-                githubLink: "https://github.com/kevinch78/Modelos.git"
+                githubLink: "https://github.com/kevinch78/Modelos.git",
+                image: "/casa.jpeg"
               },
               {
-                title: "Aplicación de Mercado de Energía",
-                description: "Aplicacion de Tesis para el mercado de energía.",
+                title: "MTE, Enerchain",
+                description: "Desarrollo de una plataforma de mercado de energía basada en blockchain, orientada a la compra, venta y gestión de energía en microredes.",
                 icon: "💡",
                 techs: ["Next.js", "Angular", "Blockchain", "Python", "Docker", "Smart Contracts", "Web3", "Solidity"],
-                githubLink: "https://github.com/JulianMbp/MTE.git"
+                githubLink: "https://github.com/JulianMbp/MTE.git",
+                image: "/logo.png"
               },   
               {
                 title: "U2Group",
-                description: "Plataforma integral para gestión de proyectos y recursos, desarrollada con tecnologías modernas.",
+                description: "Plataforma integral para la gestión de proyectos y recursos de equipos de trabajo, desarrollada con tecnologías modernas.",
                 icon: "🧑‍💻",
                 techs: ["TypeScript", "Python", "Next.js", "Django", "SQL"],
-                githubLink: "https://github.com/Pedroza22/U2Group"
+                githubLink: "https://github.com/Pedroza22/U2Group",
+                image: "/Planta arquitectónica.jpeg"
               },
               {
                 title: "MedFinder",
-                description: "Plataforma para el control de inventario de medicamentos.",
+                description: "Sistema para el control de inventario y seguimiento de medicamentos en farmacias y hospitales. Facilita la gestión de stock, búsqueda rápida y alertas de desabastecimiento utilizando bases de datos robustas.",
                 icon: "🏥💊",
                 techs: ["Python", "Next.js", "IA", "PostgreSQL"],
-                githubLink: "https://github.com/JulianMbp/Medicamentos.git"
+                githubLink: "https://github.com/JulianMbp/Medicamentos.git",
+                image: "/hack.jpg"
               },
+              {
+                title: "Task Manager",
+                description: "Aplicación multiplataforma para la creación, seguimiento y gestión de tareas de forma sencilla y organizada. Integra un backend en NestJS y un frontend en Flutter para ofrecer una experiencia fluida y sincronizada en tiempo real.",
+                icon: "✅",
+                techs: ["NestJS", "Flutter", "PostgreSQL"],
+                githubLink: "https://github.com/JulianMbp/Medicamentos.git",
+                hasMultipleRepos: true,
+                frontendLink: "https://github.com/Valentina2882/Task_Frontend_Flutter.git",
+                backendLink: "https://github.com/Valentina2882/Task_Backend_NestJS.git",
+                image: "/Tasks.jpeg"
+              }
+
 
             ].map((project, index) => (
               <SwiperSlide key={index}>
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-all h-full flex flex-col">
-                  <div className="w-full h-32 bg-purple-500/20 rounded-xl mb-4 flex items-center justify-center">
-                    <div className="text-4xl">{project.icon}</div>
+                  <div className="w-full h-32 bg-purple-500/20 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="text-4xl">{project.icon}</div>
+                    )}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
                   <p className="text-gray-300 mb-4 flex-1">
@@ -277,17 +306,44 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all text-center flex items-center justify-center gap-2 font-semibold"
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                    </svg>
-                    Ver Código
-                  </a>
+                  {project.hasMultipleRepos ? (
+                    <div className="flex gap-2">
+                      <a
+                        href={project.frontendLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all text-center flex items-center justify-center gap-2 font-semibold text-sm"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                        </svg>
+                        Frontend
+                      </a>
+                      <a
+                        href={project.backendLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all text-center flex items-center justify-center gap-2 font-semibold text-sm"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                        </svg>
+                        Backend
+                      </a>
+                    </div>
+                  ) : (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all text-center flex items-center justify-center gap-2 font-semibold"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                      </svg>
+                      Ver Código
+                    </a>
+                  )}
                 </div>
               </SwiperSlide>
             ))}
@@ -308,7 +364,7 @@ export default function Home() {
             navigation
             pagination={{ clickable: true }}
             autoplay={{
-              delay: 2000,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             loop={true}
@@ -386,52 +442,63 @@ export default function Home() {
         </div>
       </section>
 
-{/* Contact Section */}
-<section id="contacto" className="py-20 px-4 bg-black/20">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-      ¡Trabajemos <span className="text-purple-400">Juntos!</span>
-    </h2>
-    <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-      ¿Tienes un proyecto de desarrollo o análisis de datos en mente? Me encantaría escuchar tus ideas 
-      y ayudarte a hacerlas realidad con tecnologías modernas.
-    </p>
-    <div className="flex flex-col sm:flex-row gap-6 justify-center flex-wrap">
-    <a
-        href="https://wa.me/573225204858?text=Hola%2C%20me%20gustar%C3%ADa%20contar%20contigo%20para%20un%20proyecto.%20%C2%A1Trabajemos%20juntos%21"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-8 py-4 border-2 border-green-400 text-green-400 rounded-full font-semibold hover:bg-green-400 hover:text-white transition-all flex items-center justify-center gap-2"
-      >
-        <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor">
-          <path d="M16.003 3.2A12.792 12.792 0 0 0 3.2 16c0 2.25.588 4.454 1.705 6.389L3 29l6.73-1.743a12.774 12.774 0 0 0 6.274 1.6h.001c7.063 0 12.795-5.729 12.795-12.8 0-3.417-1.33-6.632-3.747-9.051A12.75 12.75 0 0 0 16.003 3.2Zm0 2.133a10.64 10.64 0 0 1 7.548 3.144c1.963 1.963 3.052 4.601 3.052 7.523 0 5.873-4.789 10.667-10.67 10.667a10.666 10.666 0 0 1-5.337-1.427l-.38-.225-4.004 1.035 1.069-3.916-.246-.4a10.65 10.65 0 0 1-1.574-5.733c0-5.88 4.793-10.668 10.666-10.668Zm-4.36 6.66c-.219-.486-.448-.496-.656-.505l-.56-.01a1.076 1.076 0 0 0-.783.366c-.27.292-1.03 1.004-1.03 2.448 0 1.444 1.055 2.84 1.203 3.037.146.194 2.028 3.241 5.034 4.413.7.302 1.245.482 1.67.617.701.224 1.34.192 1.846.117.563-.084 1.73-.706 1.975-1.387.243-.677.243-1.258.17-1.387-.07-.128-.256-.204-.535-.357l-2.066-1.034c-.28-.14-.484-.208-.689.207-.203.416-.794 1.034-.975 1.246-.179.21-.356.236-.656.08-.302-.157-1.276-.471-2.43-1.501-1.082-.962-1.814-2.151-2.025-2.455-.211-.303-.022-.47.133-.617.136-.13.304-.339.456-.508.15-.17.2-.29.3-.486.098-.195.048-.365-.027-.508l-.925-2.14Z" />
-        </svg>
-        WhatsApp
-      </a>
-      <a
-        href="mailto:burbanozarella05@gmail.com"
-        className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
-      >
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-        </svg>
-        Enviar Email
-      </a>
-      <a
-        href="https://www.linkedin.com/in/zarella-burbano/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-8 py-4 border-2 border-blue-500 text-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-all flex items-center justify-center gap-2"
-      >
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-        </svg>
-        LinkedIn
-      </a>
-    </div>
-  </div>
-</section>
+      {/* Contact Section */}
+      <section id="contacto" className="py-20 px-4 bg-black/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            ¡Trabajemos <span className="text-purple-400">Juntos!</span>
+          </h2>
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            ¿Tienes un proyecto de desarrollo o análisis de datos en mente? Me encantaría escuchar tus ideas 
+            y ayudarte a hacerlas realidad con tecnologías modernas.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center flex-wrap">
+          <a
+              href="https://wa.me/573225204858?text=Hola%2C%20me%20gustar%C3%ADa%20contar%20contigo%20para%20un%20proyecto.%20%C2%A1Trabajemos%20juntos%21"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-green-400 text-green-400 rounded-full font-semibold hover:bg-green-400 hover:text-white transition-all flex items-center justify-center gap-2"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16.003 3.2A12.792 12.792 0 0 0 3.2 16c0 2.25.588 4.454 1.705 6.389L3 29l6.73-1.743a12.774 12.774 0 0 0 6.274 1.6h.001c7.063 0 12.795-5.729 12.795-12.8 0-3.417-1.33-6.632-3.747-9.051A12.75 12.75 0 0 0 16.003 3.2Zm0 2.133a10.64 10.64 0 0 1 7.548 3.144c1.963 1.963 3.052 4.601 3.052 7.523 0 5.873-4.789 10.667-10.67 10.667a10.666 10.666 0 0 1-5.337-1.427l-.38-.225-4.004 1.035 1.069-3.916-.246-.4a10.65 10.65 0 0 1-1.574-5.733c0-5.88 4.793-10.668 10.666-10.668Zm-4.36 6.66c-.219-.486-.448-.496-.656-.505l-.56-.01a1.076 1.076 0 0 0-.783.366c-.27.292-1.03 1.004-1.03 2.448 0 1.444 1.055 2.84 1.203 3.037.146.194 2.028 3.241 5.034 4.413.7.302 1.245.482 1.67.617.701.224 1.34.192 1.846.117.563-.084 1.73-.706 1.975-1.387.243-.677.243-1.258.17-1.387-.07-.128-.256-.204-.535-.357l-2.066-1.034c-.28-.14-.484-.208-.689.207-.203.416-.794 1.034-.975 1.246-.179.21-.356.236-.656.08-.302-.157-1.276-.471-2.43-1.501-1.082-.962-1.814-2.151-2.025-2.455-.211-.303-.022-.47.133-.617.136-.13.304-.339.456-.508.15-.17.2-.29.3-.486.098-.195.048-.365-.027-.508l-.925-2.14Z" />
+              </svg>
+              WhatsApp
+            </a>
+                         <a
+               href="mailto:burbanozarella05@gmail.com"
+               className="px-8 py-4 border-2 border-purple-400 text-purple-400 rounded-full font-semibold hover:bg-purple-400 hover:text-white transition-all flex items-center justify-center gap-2"
+             >
+               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+               </svg>
+               Enviar Email
+             </a>
+                         <a
+               href="https://www.linkedin.com/in/zarella-burbano/"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="px-8 py-4 border-2 border-blue-500 text-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-all flex items-center justify-center gap-2"
+             >
+               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
+               </svg>
+               LinkedIn
+             </a>
+             <a
+               href="https://github.com/Valentina2882"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="px-8 py-4 border-2 border-gray-600 text-gray-300 rounded-full font-semibold hover:bg-gray-600 hover:text-white transition-all flex items-center justify-center gap-2"
+             >
+               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+               </svg>
+               GitHub
+             </a>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-white/10">
