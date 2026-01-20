@@ -18,8 +18,60 @@ export default function Home() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Background Design - Elementos decorativos */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {/* Gradiente radial animado */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-0 w-72 h-72 bg-cyan-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Líneas decorativas */}
+        <div className="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"></div>
+        <div className="absolute bottom-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"></div>
+        
+        {/* Grid pattern sutil */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `
+            linear-gradient(cyan 1px, transparent 1px),
+            linear-gradient(90deg, cyan 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px'
+        }}></div>
+        
+        {/* Círculos decorativos flotantes */}
+        <div className="absolute top-1/4 right-10 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-1/3 left-20 w-1.5 h-1.5 bg-cyan-500 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-cyan-300 rounded-full animate-ping" style={{ animationDelay: '2.5s' }}></div>
+        
+        {/* Formas geométricas */}
+        <div className="absolute top-40 right-20 w-32 h-32 border border-cyan-500/10 rotate-45 animate-spin" style={{ animationDuration: '20s' }}></div>
+        <div className="absolute bottom-40 left-20 w-24 h-24 border border-cyan-400/10 rotate-12 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
+        
+        {/* Líneas diagonales decorativas */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-1/4 left-0 w-px h-64 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent rotate-12"></div>
+          <div className="absolute top-1/2 right-0 w-px h-64 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent -rotate-12"></div>
+        </div>
+        
+        {/* Efecto de partículas */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-12 md:py-16">
         
         {/* HEADER - Diseño distintivo y profesional */}
         <header className="mb-12 relative">
