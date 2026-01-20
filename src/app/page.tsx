@@ -5,13 +5,25 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   const [activeTab, setActiveTab] = useState('summary');
   const [currentSkillSlide, setCurrentSkillSlide] = useState(0);
+  const [currentProjectSlide, setCurrentProjectSlide] = useState(0);
 
   // Autoplay para el carrusel infinito de habilidades
   useEffect(() => {
     if (activeTab === 'skills') {
       const interval = setInterval(() => {
         setCurrentSkillSlide((prev) => (prev + 1) % 6);
-      }, 5000); // Cambia cada 5 segundos
+      }, 10000); // Cambia cada 10 segundos
+
+      return () => clearInterval(interval);
+    }
+  }, [activeTab]);
+
+  // Autoplay para el carrusel infinito de proyectos
+  useEffect(() => {
+    if (activeTab === 'projects') {
+      const interval = setInterval(() => {
+        setCurrentProjectSlide((prev) => (prev + 1) % 2); // 2 slides con 4 proyectos cada uno
+      }, 12000); // Cambia cada 12 segundos
 
       return () => clearInterval(interval);
     }
@@ -394,16 +406,31 @@ export default function Home() {
                 <h2 className="text-3xl font-bold text-white">Proyectos Destacados</h2>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Carrusel de Proyectos */}
+              <div className="relative">
+                {/* Contenedor del carrusel */}
+                <div className="overflow-hidden rounded-xl">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentProjectSlide * 100}%)` }}
+                  >
+                    {/* Slide 1: Primeros 4 proyectos */}
+                    <div className="min-w-full">
+                      <div className="grid md:grid-cols-2 gap-6">
                 {/* MedFinder - Hackathon Winner */}
                 <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group relative">
-                  <div className="absolute top-2 right-2 bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded-full border border-cyan-500/30">
+                  <div className="absolute bottom-4 right-4 bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded-full border border-cyan-500/30">
                     🏆 Winners
                   </div>
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
                       <span className="text-2xl">💊</span>
                     </div>
+                    <a href="https://github.com/JulianMbp/Medicamentos.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                      </svg>
+                    </a>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">MedFinder Project</h3>
                   <p className="text-gray-400 text-xs mb-2 text-cyan-400">Potencia Summit Nariño 2024 Hackathon</p>
@@ -426,8 +453,13 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
                       <span className="text-2xl">⛓️</span>
                     </div>
+                    <a href="https://mte-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Sistema de Gestión de Energía Descentralizado</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">ENERCHAIN</h3>
                   <p className="text-gray-400 text-sm mb-4">
                     Desarrollo de un sistema descentralizado de gestión de energía integrando tecnología blockchain y smart contracts 
                     escritos en Solidity. El sistema incluye APIs construidas con Django, Node.js y Nest.js, interfaces frontend desarrolladas 
@@ -448,6 +480,11 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
                       <span className="text-2xl">🏗️</span>
                     </div>
+                    <a href="https://github.com/Pedroza22/U2Group.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                      </svg>
+                    </a>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">U2Group – Architecture and Design Platform</h3>
                   <p className="text-gray-400 text-sm mb-4">
@@ -470,14 +507,18 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
                       <span className="text-2xl">📚</span>
                     </div>
+                    <a href="https://github.com/Valentina2882/LearnMateAI_frontend.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                      </svg>
+                    </a>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">LearnMate</h3>
                   <p className="text-gray-400 text-sm mb-4">
                     Aplicación móvil educativa impulsada por IA desarrollada usando Flutter, con Supabase proporcionando funcionalidad 
                     backend-as-a-service para autenticación y persistencia de datos. El proyecto integra características impulsadas por IA 
                     para apoyar procesos de aprendizaje y seguimiento del progreso académico, mientras también incorpora un enfoque en la 
-                    salud mental y el bienestar estudiantil. LearnMate fue concebido y diseñado desde una perspectiva centrada en la experiencia 
-                    del usuario, priorizando la empatía, usabilidad y aprendizaje de apoyo dentro de un contexto educativo real.
+                    salud mental y el bienestar estudiantilS.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {['Flutter', 'Supabase', 'AI', 'Mobile', 'UX-Driven'].map((tech) => (
@@ -487,56 +528,162 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-
-                {/* Skin Cancer Classification System */}
-                <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <span className="text-2xl">🔬</span>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Skin Cancer Classification System</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    Proyecto orientado a la investigación enfocado en la predicción de cáncer de piel usando técnicas de deep learning 
-                    y un dataset público de Kaggle (HAM10000). El proyecto explora el uso de arquitecturas avanzadas de redes neuronales 
-                    mejoradas con mecanismos Soft-Attention para mejorar la precisión de clasificación de lesiones, cubriendo el pipeline 
-                    completo desde preprocesamiento de datos y entrenamiento del modelo hasta evaluación y visualización interactiva, 
-                    dentro de un contexto educativo y experimental.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Python', 'Deep Learning', 'CNN', 'Soft-Attention', 'Kaggle', 'HAM10000', 'Research'].map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
-                        {tech}
-                      </span>
-                    ))}
+
+                    {/* Slide 2: Últimos 4 proyectos */}
+                    <div className="min-w-full">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {/* Skin Cancer Classification System */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">🔬</span>
+                            </div>
+                            <a href="https://github.com/Valentina2882/RepoCancerPiel.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">Skin Cancer Classification System</h3>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Proyecto orientado a la investigación enfocado en la predicción de cáncer de piel usando técnicas de deep learning 
+                            y un dataset público de Kaggle (HAM10000). El proyecto explora el uso de arquitecturas avanzadas de redes neuronales 
+                            mejoradas con mecanismos Soft-Attention para mejorar la precisión de clasificación de lesiones.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Python', 'Deep Learning', 'CNN', 'Soft-Attention', 'Kaggle', 'HAM10000', 'Research'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Applied Research - Blockchain */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">📖</span>
+                            </div>
+                            <a href="https://ates.alayen.edu.iq/home/vol1/iss2/10/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">Exploring Blockchain Technology</h3>
+                          <p className="text-gray-400 text-xs mb-2 text-cyan-400">2024 – Applied Research</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Investigación aplicada sobre los usos de blockchain en diferentes sectores. Publicación académica que explora 
+                            aplicaciones e insights de la tecnología blockchain en múltiples campos.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Research', 'Blockchain', 'Academic Publication', 'Applied Research'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Task Manager */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">✅</span>
+                            </div>
+                            <div className="flex gap-2">
+                              <a href="https://github.com/Valentina2882/Task_Frontend_Flutter.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                                </svg>
+                              </a>
+                              <a href="https://github.com/Valentina2882/Task_Backend_NestJS.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">Task Manager</h3>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Aplicación multiplataforma para gestión de tareas. Backend en NestJS con frontend en Flutter para sincronización en tiempo real.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['NestJS', 'Flutter', 'PostgreSQL', 'REST API', 'TypeScript'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Predicción de Precios de Viviendas */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">🏠</span>
+                            </div>
+                            <a href="https://github.com/kevinch78/Modelos.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">Predicción de Precios de Viviendas</h3>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Modelos de Machine Learning (SVM, Regresión Lineal) para estimación de precios de viviendas basado en características del inmueble.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Python', 'SVM', 'Regresión Lineal', 'Scikit-learn', 'Express'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Applied Research - Blockchain */}
-                <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <span className="text-2xl">📖</span>
-                    </div>
-                    <a href="https://ates.alayen.edu.iq/home/vol1/iss2/10/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
-                      </svg>
-                    </a>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Exploring Blockchain Technology: Applications and Insights Across Multiple Fields</h3>
-                  <p className="text-gray-400 text-xs mb-2 text-cyan-400">2024 – Applied Research</p>
-                  <p className="text-gray-400 text-sm mb-4">
-                    Investigación aplicada sobre los usos de blockchain en diferentes sectores. Publicación académica que explora 
-                    aplicaciones e insights de la tecnología blockchain en múltiples campos.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Research', 'Blockchain', 'Academic Publication', 'Applied Research'].map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
-                        {tech}
-                      </span>
+                {/* Botones de navegación */}
+                <div className="flex items-center justify-between mt-6">
+                  <button
+                    onClick={() => setCurrentProjectSlide((prev) => (prev - 1 + 2) % 2)}
+                    className="w-12 h-12 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center transition-all"
+                  >
+                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Indicadores de slides */}
+                  <div className="flex gap-2">
+                    {[0, 1].map((index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentProjectSlide(index)}
+                        className={`h-2 rounded-full transition-all ${
+                          currentProjectSlide === index
+                            ? 'w-8 bg-cyan-400'
+                            : 'w-2 bg-cyan-500/30 hover:bg-cyan-500/50'
+                        }`}
+                        aria-label={`Ir a slide ${index + 1}`}
+                      />
                     ))}
                   </div>
+
+                  <button
+                    onClick={() => setCurrentProjectSlide((prev) => (prev + 1) % 2)}
+                    className="w-12 h-12 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center transition-all"
+                  >
+                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
