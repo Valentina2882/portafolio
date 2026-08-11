@@ -13,21 +13,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mi Portafolio | Desarrollador Full Stack",
-  description: "Portafolio profesional de desarrollador Full Stack. Especializado en React, Next.js, TypeScript y tecnologías modernas.",
-  keywords: ["desarrollador", "full stack", "react", "nextjs", "typescript", "portafolio"],
-  authors: [{ name: "Zarella" }],
-  creator: "Zarella",
+  title: "Zarella Burbano Vallejo | Ingeniera de Software",
+  description: "Portafolio profesional de Zarella Burbano Vallejo, Ingeniera de Software Full Stack. Experiencia en React, Next.js, Flutter, Django, APIs y bases de datos relacionales.",
+  keywords: ["ingeniera de software", "full stack", "react", "nextjs", "flutter", "django", "portafolio"],
+  authors: [{ name: "Zarella Burbano Vallejo" }],
+  creator: "Zarella Burbano Vallejo",
   openGraph: {
-    title: "Mi Portafolio | Desarrollador Full Stack",
-    description: "Portafolio profesional de desarrollador Full Stack",
+    title: "Zarella Burbano Vallejo | Ingeniera de Software",
+    description: "Portafolio profesional de Ingeniera de Software Full Stack",
     type: "website",
-    locale: "es_ES",
+    locale: "es_CO",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mi Portafolio | Desarrollador Full Stack",
-    description: "Portafolio profesional de desarrollador Full Stack",
+    title: "Zarella Burbano Vallejo | Ingeniera de Software",
+    description: "Portafolio profesional de Ingeniera de Software Full Stack",
   },
 };
 

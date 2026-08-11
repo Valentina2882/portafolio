@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     if (activeTab === 'skills') {
       const interval = setInterval(() => {
-        setCurrentSkillSlide((prev) => (prev + 1) % 6);
+        setCurrentSkillSlide((prev) => (prev + 1) % 7);
       }, 10000); // Cambia cada 10 segundos
 
       return () => clearInterval(interval);
@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     if (activeTab === 'projects') {
       const interval = setInterval(() => {
-        setCurrentProjectSlide((prev) => (prev + 1) % 2); // 2 slides con 4 proyectos cada uno
+        setCurrentProjectSlide((prev) => (prev + 1) % 3); // 3 slides con 3 proyectos cada uno
       }, 12000); // Cambia cada 12 segundos
 
       return () => clearInterval(interval);
@@ -66,17 +66,38 @@ export default function Home() {
           <div className="absolute top-1/2 right-0 w-px h-64 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent -rotate-12"></div>
         </div>
         
-        {/* Efecto de partículas */}
+        {/* Efecto de partículas - posiciones fijas para evitar errores de hidratación */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[
+            { left: 8, top: 12, duration: 4.2, delay: 0.3 },
+            { left: 22, top: 38, duration: 5.1, delay: 1.1 },
+            { left: 35, top: 8, duration: 3.8, delay: 0.7 },
+            { left: 48, top: 62, duration: 6.0, delay: 1.8 },
+            { left: 61, top: 25, duration: 4.5, delay: 0.2 },
+            { left: 74, top: 71, duration: 5.6, delay: 1.4 },
+            { left: 87, top: 18, duration: 3.4, delay: 0.9 },
+            { left: 15, top: 84, duration: 6.3, delay: 1.6 },
+            { left: 29, top: 55, duration: 4.8, delay: 0.5 },
+            { left: 42, top: 91, duration: 5.3, delay: 1.2 },
+            { left: 56, top: 44, duration: 3.6, delay: 0.1 },
+            { left: 68, top: 7, duration: 6.1, delay: 1.9 },
+            { left: 81, top: 53, duration: 4.0, delay: 0.8 },
+            { left: 93, top: 79, duration: 5.8, delay: 1.5 },
+            { left: 5, top: 48, duration: 3.9, delay: 0.4 },
+            { left: 18, top: 66, duration: 4.7, delay: 1.0 },
+            { left: 51, top: 31, duration: 5.4, delay: 1.7 },
+            { left: 64, top: 88, duration: 3.5, delay: 0.6 },
+            { left: 77, top: 41, duration: 6.2, delay: 1.3 },
+            { left: 90, top: 14, duration: 4.4, delay: 0.0 },
+          ].map((particle, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animation: `float ${particle.duration}s ease-in-out infinite`,
+                animationDelay: `${particle.delay}s`
               }}
             ></div>
           ))}
@@ -93,14 +114,14 @@ export default function Home() {
           <div className="relative border-l-4 border-cyan-500 pl-8 py-6">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div>
-                <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-2">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2">
                   <span className="text-white">Zarella</span>{' '}
                   <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
-                    Burbano
+                    Burbano Vallejo
                   </span>
                 </h1>
                 <p className="text-2xl md:text-3xl text-cyan-400 font-light tracking-wide">
-                  Fullstack Software Engineer
+                  Ingeniera de Software
                 </p>
                 <div className="h-px w-full bg-gradient-to-r from-cyan-500 via-cyan-500/50 to-transparent mt-4"></div>
               </div>
@@ -150,6 +171,16 @@ export default function Home() {
                     github.com/Valentina2882
                   </a>
                 </div>
+
+                <div className="flex items-center gap-3 group">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                    <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-300">Pasto, Colombia</span>
+                </div>
               </div>
             </div>
           </div>
@@ -198,13 +229,11 @@ export default function Home() {
               
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p className="text-lg">
-                  Trabajo en el desarrollo de aplicaciones web fullstack para entornos académicos y de investigación, 
-                  contribuyendo al diseño e implementación de soluciones robustas y escalables. Desarrollo e integro 
-                  APIs RESTful, construyo interfaces de usuario modernas y responsivas utilizando Angular y Next.js, y 
-                  colaboro estrechamente con equipos multidisciplinarios para entregar sistemas de alta calidad 
-                  alineados con requisitos funcionales y técnicos. Mi experiencia también incluye trabajar con arquitecturas 
-                  basadas en blockchain y smart contracts, así como producir documentación de API clara y estructurada 
-                  utilizando Swagger para garantizar la mantenibilidad y la integración fluida.
+                  Ingeniera de Software con experiencia en el desarrollo, mantenimiento e implementación de aplicaciones 
+                  web y soluciones de software. He trabajado como desarrolladora Full Stack, participando en backend, 
+                  frontend, APIs y bases de datos relacionales. Me caracterizo por resolver problemas, incorporar nuevas 
+                  funcionalidades y mantener entornos de producción, con capacidad de aprendizaje, adaptación a nuevas 
+                  tecnologías y un fuerte enfoque en la calidad del software.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
@@ -233,8 +262,8 @@ export default function Home() {
                       <h3 className="text-xl font-semibold text-cyan-400">Desarrollo Backend</h3>
                     </div>
                     <p className="text-gray-400">
-                      Construcción de APIs RESTful robustas y escalables con Python (Django, Flask), Node.js y NestJS. 
-                      Arquitectura limpia y patrones de diseño empresariales.
+                      Construcción de APIs RESTful, mantenimiento de entornos de producción y gestión de bases de datos
+                      relacionales con Python (Django), Node.js, NestJS y PHP.
                     </p>
                   </div>
                   
@@ -263,8 +292,8 @@ export default function Home() {
                       <h3 className="text-xl font-semibold text-cyan-400">Análisis de Datos</h3>
                     </div>
                     <p className="text-gray-400">
-                      Análisis y visualización de datos con Python (Pandas, NumPy, Matplotlib) y Power BI. 
-                      Machine Learning aplicado a predicción y clasificación.
+                      Conocimientos básicos en análisis y visualización de datos con Python (Pandas, NumPy, Matplotlib)
+                      y Power BI, además de nociones de Machine Learning aplicadas a predicción y clasificación.
                     </p>
                   </div>
                 </div>
@@ -283,36 +312,6 @@ export default function Home() {
               </div>
               
               <div className="space-y-8">
-                {/* Universidad de Nariño - Actual */}
-                <div className="relative pl-8 pb-8 border-l-2 border-cyan-500/30 last:border-l-0">
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-cyan-500 rounded-full -translate-x-[9px] ring-4 ring-black"></div>
-                  
-                  <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">Fullstack Developer</h3>
-                        <p className="text-cyan-400 font-medium">Universidad de Nariño</p>
-                      </div>
-                      <span className="text-gray-400 text-sm bg-cyan-500/10 px-4 py-1 rounded-full w-fit">
-                        Feb 2025 - Presente
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-300 mb-4">
-                      Desarrollo de aplicaciones web fullstack para entornos académicos y de investigación, 
-                      contribuyendo al diseño e implementación de soluciones robustas y escalables.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {['Next.js', 'Angular', 'Django', 'Node.js', 'NestJS', 'PostgreSQL', 'JWT', 'Docker'].map((tech) => (
-                        <span key={tech} className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-md text-sm border border-cyan-500/20">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
                 {/* SITI Soluciones - Actual */}
                 <div className="relative pl-8 pb-8 border-l-2 border-cyan-500/30">
                   <div className="absolute left-0 top-0 w-4 h-4 bg-cyan-500 rounded-full -translate-x-[9px] ring-4 ring-black"></div>
@@ -320,31 +319,43 @@ export default function Home() {
                   <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-white">Software Developer</h3>
-                        <p className="text-cyan-400 font-medium">SITI Soluciones – Software Development Department</p>
+                        <h3 className="text-2xl font-bold text-white">Desarrolladora de Software</h3>
+                        <p className="text-cyan-400 font-medium">SITI Soluciones — Practicante → Desarrolladora</p>
                       </div>
                       <span className="text-gray-400 text-sm bg-cyan-500/10 px-4 py-1 rounded-full w-fit">
-                        Dic 2025 - Presente
+                        Sep 2025 - Presente
                       </span>
                     </div>
                     
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex gap-3">
                         <span className="text-cyan-400 mt-1">▹</span>
-                        <span>Desarrollo y mantenimiento de sistemas web utilizando PHP y CSS.</span>
+                        <span>Desarrollo y mantenimiento de aplicaciones web y móviles, incluyendo corrección de errores y nuevas funcionalidades en producción.</span>
                       </li>
                       <li className="flex gap-3">
                         <span className="text-cyan-400 mt-1">▹</span>
-                        <span>Gestión y consulta de bases de datos relacionales a través de HeidiSQL en múltiples entornos de servidor.</span>
+                        <span>Desarrollo backend y gestión de bases de datos relacionales con PHP y SQL en múltiples entornos de servidor.</span>
                       </li>
                       <li className="flex gap-3">
                         <span className="text-cyan-400 mt-1">▹</span>
-                        <span>Contribución a la estabilidad y mejora continua de aplicaciones de nivel de producción.</span>
+                        <span>Desarrollo móvil con Flutter (Dart) e integración de APIs.</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-cyan-400 mt-1">▹</span>
+                        <span>Desarrollo de módulos académicos en la plataforma SAPRED y automatización de procesos operativos.</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-cyan-400 mt-1">▹</span>
+                        <span>Implementación del procesamiento automatizado de hojas de respuesta con IA (Gemini), enviando resultados directamente a la base de datos de calificaciones.</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-cyan-400 mt-1">▹</span>
+                        <span>Análisis de incidentes, depuración y mantenimiento de aplicaciones.</span>
                       </li>
                     </ul>
                     
                     <div className="flex flex-wrap gap-2 mt-4">
-                      {['PHP', 'CSS', 'SQL', 'HeidiSQL', 'Web Development'].map((tech) => (
+                      {['PHP', 'SQL', 'Flutter', 'Dart', 'React', 'CSS', 'Gemini AI', 'HeidiSQL'].map((tech) => (
                         <span key={tech} className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-md text-sm border border-cyan-500/20">
                           {tech}
                         </span>
@@ -353,38 +364,42 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* SITI Soluciones - Internship */}
+                {/* Universidad de Nariño */}
                 <div className="relative pl-8">
                   <div className="absolute left-0 top-0 w-4 h-4 bg-cyan-500/60 rounded-full -translate-x-[9px] ring-4 ring-black"></div>
                   
                   <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-white">Internship – Software Development Department</h3>
-                        <p className="text-cyan-400 font-medium">SITI Soluciones</p>
+                        <h3 className="text-2xl font-bold text-white">Desarrolladora Fullstack</h3>
+                        <p className="text-cyan-400 font-medium">Universidad de Nariño</p>
                       </div>
                       <span className="text-gray-400 text-sm bg-cyan-500/10 px-4 py-1 rounded-full w-fit">
-                        Sep 2025 - Nov 2025
+                        Feb 2025 - Feb 2026
                       </span>
                     </div>
                     
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex gap-3">
                         <span className="text-cyan-400 mt-1">▹</span>
-                        <span>Desarrollo móvil y web utilizando Flutter (Dart), Kotlin, React, PHP y CSS, contribuyendo a la integración de APIs.</span>
+                        <span>Desarrollo de un sistema descentralizado de gestión de energía (ENERCHAIN) con blockchain y smart contracts en Solidity.</span>
                       </li>
                       <li className="flex gap-3">
                         <span className="text-cyan-400 mt-1">▹</span>
-                        <span>Desarrollo de un nuevo módulo móvil para la creación de evaluaciones académicas dentro de la plataforma SAPRED.</span>
+                        <span>Construcción de APIs y servicios backend con Django, Node.js y NestJS.</span>
                       </li>
                       <li className="flex gap-3">
                         <span className="text-cyan-400 mt-1">▹</span>
-                        <span>Implementación de una funcionalidad automatizada de escaneo de hojas de respuesta utilizando Gemini, permitiendo el envío directo de resultados a la base de datos de calificaciones y mejorando la eficiencia operativa.</span>
+                        <span>Creación de interfaces frontend con Angular y Next.js.</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-cyan-400 mt-1">▹</span>
+                        <span>Implementación de PostgreSQL, autenticación JWT y entornos dockerizados para un despliegue seguro y escalable.</span>
                       </li>
                     </ul>
                     
                     <div className="flex flex-wrap gap-2 mt-4">
-                      {['Flutter', 'Dart', 'Kotlin', 'React', 'PHP', 'CSS', 'Gemini AI', 'API Integration'].map((tech) => (
+                      {['Solidity', 'Django', 'Node.js', 'NestJS', 'Angular', 'Next.js', 'PostgreSQL', 'JWT', 'Docker'].map((tech) => (
                         <span key={tech} className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-md text-sm border border-cyan-500/20">
                           {tech}
                         </span>
@@ -414,126 +429,96 @@ export default function Home() {
                     className="flex transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${currentProjectSlide * 100}%)` }}
                   >
-                    {/* Slide 1: Primeros 4 proyectos */}
+                    {/* Slide 1: Agenda, ENERCHAIN, LearnMate */}
                     <div className="min-w-full">
-                      <div className="grid md:grid-cols-2 gap-6">
-                {/* MedFinder - Hackathon Winner */}
-                <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group relative">
-                  <div className="absolute bottom-4 right-4 bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded-full border border-cyan-500/30">
-                    🏆 Winners
-                  </div>
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <span className="text-2xl">💊</span>
-                    </div>
-                    <a href="https://github.com/JulianMbp/Medicamentos.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                      </svg>
-                    </a>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">MedFinder Project</h3>
-                  <p className="text-gray-400 text-xs mb-2 text-cyan-400">Potencia Summit Nariño 2024 Hackathon</p>
-                  <p className="text-gray-400 text-sm mb-4">
-                    Desarrollo de una plataforma descentralizada para la gestión y distribución de datos relacionados con medicamentos 
-                    a través de tecnología blockchain.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Blockchain', 'Smart Contracts', 'Decentralized Platform', 'Medicine Management'].map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* Agenda */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">📅</span>
+                            </div>
+                            <a href="https://agendapersonalz.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">Agenda — Dashboard personal</h3>
+                          <p className="text-cyan-400 text-xs mb-2">2026</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            PWA para gestionar agenda, finanzas personales, presupuestos y hábitos. Integra políticas de seguridad RLS,
+                            OAuth de Gmail para clasificar transacciones automáticamente mediante Edge Functions y un motor propio de procesamiento.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['React', 'Vite', 'Supabase', 'PostgreSQL', 'PWA', 'Edge Functions'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
 
-                {/* Sistema de Gestión de Energía Descentralizado */}
-                <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <span className="text-2xl">⛓️</span>
-                    </div>
-                    <a href="https://mte-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">ENERCHAIN</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    Desarrollo de un sistema descentralizado de gestión de energía integrando tecnología blockchain y smart contracts 
-                    escritos en Solidity. El sistema incluye APIs construidas con Django, Node.js y Nest.js, interfaces frontend desarrolladas 
-                    usando Angular y Next.js, e integración segura con PostgreSQL, autenticación basada en JWT y entornos dockerizados.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Blockchain', 'Solidity', 'Django', 'Node.js', 'NestJS', 'Angular', 'Next.js', 'PostgreSQL', 'JWT', 'Docker'].map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                        {/* LearnMate */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">📚</span>
+                            </div>
+                            <a href="https://github.com/Valentina2882/LearnMateAI_frontend.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">LearnMate — Aplicación móvil educativa con IA</h3>
+                          <p className="text-cyan-400 text-xs mb-2">2025</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Aplicación móvil educativa con IA desarrollada en Flutter y Supabase para autenticación y persistencia de datos.
+                            Integra IA para apoyo al aprendizaje y seguimiento académico, junto con herramientas de bienestar estudiantil, con enfoque en UX/UI.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Flutter', 'Supabase', 'AI', 'Mobile', 'UX'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
 
-                {/* U2Group */}
-                <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <span className="text-2xl">🏗️</span>
-                    </div>
-                    <a href="https://github.com/Pedroza22/U2Group.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                      </svg>
-                    </a>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">U2Group – Architecture and Design Platform</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    Desarrollo de una plataforma web para arquitectura y diseño con personalización 3D, calculadora de precios, 
-                    portafolio geolocalizado, blog y panel administrativo. Tecnologías: Django, Next.js, React, Tailwind, SQLite, 
-                    REST APIs, soporte multilingüe (ES/EN) y envío de correos vía Gmail SMTP.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Django', 'Next.js', 'React', 'Tailwind', 'SQLite', 'REST APIs', 'Multilingual'].map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* LearnMate */}
-                <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                      <span className="text-2xl">📚</span>
-                    </div>
-                    <a href="https://github.com/Valentina2882/LearnMateAI_frontend.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                      </svg>
-                    </a>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">LearnMate</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    Aplicación móvil educativa impulsada por IA desarrollada usando Flutter, con Supabase proporcionando funcionalidad 
-                    backend-as-a-service para autenticación y persistencia de datos. El proyecto integra características impulsadas por IA 
-                    para apoyar procesos de aprendizaje y seguimiento del progreso académico, mientras también incorpora un enfoque en la 
-                    salud mental y el bienestar estudiantilS.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Flutter', 'Supabase', 'AI', 'Mobile', 'UX-Driven'].map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                        {/* ENERCHAIN */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">⛓️</span>
+                            </div>
+                            <a href="https://mte-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">ENERCHAIN — Sistema descentralizado de gestión energética</h3>
+                          <p className="text-cyan-400 text-xs mb-2">2025</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Sistema descentralizado de gestión de energía con blockchain y smart contracts en Solidity.
+                            Backend y APIs con Django, Node.js y NestJS; frontend con Angular y Next.js.
+                            PostgreSQL, autenticación JWT y entornos dockerizados, con arquitectura segura y escalable para la trazabilidad de información energética.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Solidity', 'Django', 'Node.js', 'NestJS', 'Angular', 'Next.js', 'PostgreSQL', 'JWT', 'Docker'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Slide 2: Últimos 4 proyectos */}
+                    {/* Slide 2: Skin Cancer, MedFinder, U2Group */}
                     <div className="min-w-full">
-                      <div className="grid md:grid-cols-2 gap-6">
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {/* Skin Cancer Classification System */}
                         <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
                           <div className="flex items-start justify-between mb-4">
@@ -546,14 +531,14 @@ export default function Home() {
                               </svg>
                             </a>
                           </div>
-                          <h3 className="text-xl font-bold text-white mb-2">Skin Cancer Classification System</h3>
+                          <h3 className="text-xl font-bold text-white mb-2">Sistema de Clasificación de Cáncer de Piel</h3>
+                          <p className="text-cyan-400 text-xs mb-2">2025</p>
                           <p className="text-gray-400 text-sm mb-4">
-                            Proyecto orientado a la investigación enfocado en la predicción de cáncer de piel usando técnicas de deep learning 
-                            y un dataset público de Kaggle (HAM10000). El proyecto explora el uso de arquitecturas avanzadas de redes neuronales 
-                            mejoradas con mecanismos Soft-Attention para mejorar la precisión de clasificación de lesiones.
+                            Proyecto de investigación para clasificar lesiones de piel con técnicas de Deep Learning sobre el dataset HAM10000.
+                            Implementa arquitecturas de redes neuronales con mecanismos Soft-Attention, cubriendo preprocesamiento, entrenamiento, evaluación y visualización de resultados.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            {['Python', 'Deep Learning', 'CNN', 'Soft-Attention', 'Kaggle', 'HAM10000', 'Research'].map((tech) => (
+                            {['Python', 'Deep Learning', 'Soft-Attention', 'HAM10000'].map((tech) => (
                               <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
                                 {tech}
                               </span>
@@ -561,6 +546,68 @@ export default function Home() {
                           </div>
                         </div>
 
+                        {/* MedFinder */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group relative">
+                          <div className="absolute top-4 right-14 bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded-full border border-cyan-500/30">
+                            🏆 Ganadores
+                          </div>
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">💊</span>
+                            </div>
+                            <a href="https://github.com/JulianMbp/Medicamentos.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">Proyecto MedFinder</h3>
+                          <p className="text-cyan-400 text-xs mb-2">Hackathon Potencia Summit Nariño 2024 — Ganadores</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Plataforma descentralizada para la gestión y distribución de información de medicamentos mediante blockchain.
+                            Enfocada en trazabilidad, disponibilidad y manejo seguro de la información.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Blockchain', 'Smart Contracts', 'Trazabilidad'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* U2Group */}
+                        <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                              <span className="text-2xl">🏗️</span>
+                            </div>
+                            <a href="https://github.com/Pedroza22/U2Group.git" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-2">U2Group</h3>
+                          <p className="text-cyan-400 text-xs mb-2">2025 — Arquitectura y diseño</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            Plataforma web con personalización 3D, calculadora de precios, portafolio geolocalizado, blog y panel administrativo.
+                            Backend con Django y REST APIs; frontend con Next.js, React y Tailwind CSS. Soporte ES/EN y correos vía Gmail SMTP.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {['Django', 'Next.js', 'React', 'Tailwind', 'PostgreSQL', 'REST APIs'].map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Slide 3: Research, Task Manager, Predicción */}
+                    <div className="min-w-full">
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {/* Applied Research - Blockchain */}
                         <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all group">
                           <div className="flex items-start justify-between mb-4">
@@ -573,14 +620,14 @@ export default function Home() {
                               </svg>
                             </a>
                           </div>
-                          <h3 className="text-xl font-bold text-white mb-2">Exploring Blockchain Technology</h3>
-                          <p className="text-gray-400 text-xs mb-2 text-cyan-400">2024 – Applied Research</p>
+                          <h3 className="text-xl font-bold text-white mb-2">Exploring Blockchain Technology: Applications and Insights Across Multiple Fields</h3>
+                          <p className="text-cyan-400 text-xs mb-2">2024 — Investigación aplicada</p>
                           <p className="text-gray-400 text-sm mb-4">
-                            Investigación aplicada sobre los usos de blockchain en diferentes sectores. Publicación académica que explora 
-                            aplicaciones e insights de la tecnología blockchain en múltiples campos.
+                            Investigación aplicada sobre los usos de blockchain en distintos sectores.
+                            Publicación académica sobre aplicaciones e insights de la tecnología en múltiples campos.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            {['Research', 'Blockchain', 'Academic Publication', 'Applied Research'].map((tech) => (
+                            {['Research', 'Blockchain', 'Publicación académica'].map((tech) => (
                               <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
                                 {tech}
                               </span>
@@ -634,10 +681,10 @@ export default function Home() {
                           </div>
                           <h3 className="text-xl font-bold text-white mb-2">Predicción de Precios de Viviendas</h3>
                           <p className="text-gray-400 text-sm mb-4">
-                            Modelos de Machine Learning (SVM, Regresión Lineal) para estimación de precios de viviendas basado en características del inmueble.
+                            Modelos de Machine Learning (SVM, Regresión Lineal) para estimar precios de viviendas según características del inmueble.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            {['Python', 'SVM', 'Regresión Lineal', 'Scikit-learn', 'Express'].map((tech) => (
+                            {['Python', 'SVM', 'Regresión Lineal', 'Scikit-learn'].map((tech) => (
                               <span key={tech} className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs border border-cyan-500/20">
                                 {tech}
                               </span>
@@ -652,7 +699,7 @@ export default function Home() {
                 {/* Botones de navegación */}
                 <div className="flex items-center justify-between mt-6">
                   <button
-                    onClick={() => setCurrentProjectSlide((prev) => (prev - 1 + 2) % 2)}
+                    onClick={() => setCurrentProjectSlide((prev) => (prev - 1 + 3) % 3)}
                     className="w-12 h-12 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center transition-all"
                   >
                     <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -662,7 +709,7 @@ export default function Home() {
 
                   {/* Indicadores de slides */}
                   <div className="flex gap-2">
-                    {[0, 1].map((index) => (
+                    {[0, 1, 2].map((index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentProjectSlide(index)}
@@ -677,7 +724,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    onClick={() => setCurrentProjectSlide((prev) => (prev + 1) % 2)}
+                    onClick={() => setCurrentProjectSlide((prev) => (prev + 1) % 3)}
                     className="w-12 h-12 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center transition-all"
                   >
                     <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -715,7 +762,7 @@ export default function Home() {
                     <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
                         <div>
-                          <h4 className="text-2xl font-bold text-white">Software Engineering</h4>
+                          <h4 className="text-2xl font-bold text-white">Ingeniería de Software</h4>
                           <p className="text-cyan-400 font-medium">Universidad Cooperativa de Colombia</p>
                         </div>
                         <span className="text-gray-400 text-sm bg-cyan-500/10 px-4 py-1 rounded-full w-fit">
@@ -727,7 +774,7 @@ export default function Home() {
                     <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
                         <div>
-                          <h4 className="text-2xl font-bold text-white">Diploma in Coding and Programming</h4>
+                          <h4 className="text-2xl font-bold text-white">Diploma en Codificación y Programación</h4>
                           <p className="text-cyan-400 font-medium">Samsung Innovation Campus</p>
                         </div>
                         <span className="text-gray-400 text-sm bg-cyan-500/10 px-4 py-1 rounded-full w-fit">
@@ -756,7 +803,7 @@ export default function Home() {
                     
                     <div className="bg-black/40 rounded-lg p-5 border border-cyan-500/10 text-center">
                       <h4 className="text-lg font-semibold text-white mb-2">Inglés</h4>
-                      <p className="text-cyan-400 text-sm">B1 – B2</p>
+                      <p className="text-cyan-400 text-sm">Básico</p>
                     </div>
                   </div>
                 </div>
@@ -782,7 +829,7 @@ export default function Home() {
                     className="flex transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${currentSkillSlide * 100}%)` }}
                   >
-                    {/* Slide 1: Frontend */}
+                    {/* Slide 1: Lenguajes */}
                     <div className="min-w-full">
                       <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
                         <div className="flex items-center gap-3 mb-6">
@@ -791,10 +838,10 @@ export default function Home() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                           </div>
-                          <h3 className="text-2xl font-bold text-cyan-400">Frontend Development</h3>
+                          <h3 className="text-2xl font-bold text-cyan-400">Lenguajes</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                          {['React', 'Next.js', 'Angular', 'Flutter', 'Dart', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML/CSS', 'PHP', 'CSS', 'Responsive Design', 'UI/UX'].map((skill) => (
+                          {['Python', 'JavaScript', 'TypeScript', 'PHP', 'Dart', 'SQL', 'Solidity'].map((skill) => (
                             <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
                               <span className="text-gray-300 text-sm font-medium">{skill}</span>
                             </div>
@@ -803,7 +850,28 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Slide 2: Backend */}
+                    {/* Slide 2: Frontend & Mobile */}
+                    <div className="min-w-full">
+                      <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                          <h3 className="text-2xl font-bold text-cyan-400">Frontend & Mobile</h3>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                          {['React', 'Next.js', 'Angular', 'Flutter', 'Vite', 'Tailwind CSS', 'HTML/CSS', 'PWA'].map((skill) => (
+                            <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
+                              <span className="text-gray-300 text-sm font-medium">{skill}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Slide 3: Backend & APIs */}
                     <div className="min-w-full">
                       <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
                         <div className="flex items-center gap-3 mb-6">
@@ -812,10 +880,10 @@ export default function Home() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                             </svg>
                           </div>
-                          <h3 className="text-2xl font-bold text-cyan-400">Backend Development</h3>
+                          <h3 className="text-2xl font-bold text-cyan-400">Backend & APIs</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                          {['Python', 'Django', 'Flask', 'NestJS', 'Node.js', 'Express', 'FastAPI', 'REST API', 'Swagger', 'GraphQL', 'Microservices', 'JWT Auth', 'OAuth', 'API Documentation'].map((skill) => (
+                          {['Django', 'NestJS', 'Node.js', 'FastAPI', 'REST API', 'Swagger', 'JWT', 'OAuth'].map((skill) => (
                             <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
                               <span className="text-gray-300 text-sm font-medium">{skill}</span>
                             </div>
@@ -824,7 +892,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Slide 3: Bases de Datos */}
+                    {/* Slide 4: Bases de Datos */}
                     <div className="min-w-full">
                       <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
                         <div className="flex items-center gap-3 mb-6">
@@ -833,10 +901,10 @@ export default function Home() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                             </svg>
                           </div>
-                          <h3 className="text-2xl font-bold text-cyan-400">Bases de Datos</h3>
+                          <h3 className="text-2xl font-bold text-cyan-400">Bases de datos</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                          {['PostgreSQL', 'MySQL', 'SQLite', 'Supabase', 'SQL', 'Prisma ORM', 'SQLAlchemy', 'Database Design', 'Query Optimization', 'Migrations', 'HeidiSQL'].map((skill) => (
+                          {['PostgreSQL', 'MySQL', 'SQLite', 'Supabase', 'SQL', 'RLS'].map((skill) => (
                             <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
                               <span className="text-gray-300 text-sm font-medium">{skill}</span>
                             </div>
@@ -845,7 +913,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Slide 4: Blockchain & Web3 */}
+                    {/* Slide 5: Blockchain & Web3 */}
                     <div className="min-w-full">
                       <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
                         <div className="flex items-center gap-3 mb-6">
@@ -857,7 +925,7 @@ export default function Home() {
                           <h3 className="text-2xl font-bold text-cyan-400">Blockchain & Web3</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                          {['Solidity', 'Smart Contracts', 'Web3.js', 'Ethereum', 'DApps', 'Blockchain Architecture', 'Truffle', 'Hardhat'].map((skill) => (
+                          {['Solidity', 'Smart Contracts', 'Web3.js', 'Ethereum'].map((skill) => (
                             <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
                               <span className="text-gray-300 text-sm font-medium">{skill}</span>
                             </div>
@@ -866,7 +934,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Slide 5: Data Science & ML */}
+                    {/* Slide 6: Data Science & IA */}
                     <div className="min-w-full">
                       <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
                         <div className="flex items-center gap-3 mb-6">
@@ -875,10 +943,10 @@ export default function Home() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                           </div>
-                          <h3 className="text-2xl font-bold text-cyan-400">Data Science & Machine Learning</h3>
+                          <h3 className="text-2xl font-bold text-cyan-400">Data Science & IA</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                          {['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn', 'TensorFlow', 'Power BI', 'Data Visualization', 'Statistical Analysis', 'Predictive Models', 'Data Mining', 'CNN'].map((skill) => (
+                          {['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Matplotlib', 'Deep Learning', 'Gemini'].map((skill) => (
                             <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
                               <span className="text-gray-300 text-sm font-medium">{skill}</span>
                             </div>
@@ -887,7 +955,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Slide 6: DevOps & Tools */}
+                    {/* Slide 7: DevOps & Herramientas */}
                     <div className="min-w-full">
                       <div className="bg-black/40 rounded-lg p-6 border border-cyan-500/10">
                         <div className="flex items-center gap-3 mb-6">
@@ -900,7 +968,7 @@ export default function Home() {
                           <h3 className="text-2xl font-bold text-cyan-400">DevOps & Herramientas</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                          {['Git', 'GitHub', 'Docker', 'CI/CD', 'Linux', 'Scrum', 'Agile', 'VS Code', 'Postman', 'npm', 'pip', 'Testing', 'Kotlin', 'Gemini AI'].map((skill) => (
+                          {['Git', 'GitHub', 'Docker', 'Linux', 'Postman', 'Supabase'].map((skill) => (
                             <div key={skill} className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all">
                               <span className="text-gray-300 text-sm font-medium">{skill}</span>
                             </div>
@@ -914,7 +982,7 @@ export default function Home() {
                 {/* Botones de navegación */}
                 <div className="flex items-center justify-between mt-6">
                   <button
-                    onClick={() => setCurrentSkillSlide((prev) => (prev - 1 + 6) % 6)}
+                    onClick={() => setCurrentSkillSlide((prev) => (prev - 1 + 7) % 7)}
                     className="w-12 h-12 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center transition-all"
                   >
                     <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -924,7 +992,7 @@ export default function Home() {
 
                   {/* Indicadores de slides */}
                   <div className="flex gap-2">
-                    {[0, 1, 2, 3, 4, 5].map((index) => (
+                    {[0, 1, 2, 3, 4, 5, 6].map((index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentSkillSlide(index)}
@@ -939,7 +1007,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    onClick={() => setCurrentSkillSlide((prev) => (prev + 1) % 6)}
+                    onClick={() => setCurrentSkillSlide((prev) => (prev + 1) % 7)}
                     className="w-12 h-12 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center transition-all"
                   >
                     <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -956,7 +1024,7 @@ export default function Home() {
         <footer className="mt-16 pt-8 border-t border-cyan-500/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2025 Zarella Burbano. Fullstack Software Engineer.
+              © 2026 Zarella Burbano Vallejo. Ingeniera de Software.
             </p>
             
             <div className="flex gap-4">
