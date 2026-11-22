@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains",
+  display: "swap",
 });
+
+const title = "Zarella Burbano · Ingeniera de software";
+const description =
+  "Portafolio de Zarella Burbano, ingeniera de software en Pasto, Colombia.";
+const siteUrl = "https://portafoliozare.vercel.app/";
 
 export const metadata: Metadata = {
-  title: "Zarella Burbano Vallejo | Ingeniera de Software",
-  description: "Portafolio profesional de Zarella Burbano Vallejo, Ingeniera de Software Full Stack. Experiencia en React, Next.js, Flutter, Django, APIs y bases de datos relacionales.",
-  keywords: ["ingeniera de software", "full stack", "react", "nextjs", "flutter", "django", "portafolio"],
-  authors: [{ name: "Zarella Burbano Vallejo" }],
-  creator: "Zarella Burbano Vallejo",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  authors: [{ name: "Zarella Burbano" }],
+  creator: "Zarella Burbano",
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    title: "Zarella Burbano Vallejo | Ingeniera de Software",
-    description: "Portafolio profesional de Ingeniera de Software Full Stack",
-    type: "website",
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Zarella Burbano",
     locale: "es_CO",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Portada del portafolio de Zarella Burbano",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zarella Burbano Vallejo | Ingeniera de Software",
-    description: "Portafolio profesional de Ingeniera de Software Full Stack",
+    title,
+    description,
+    images: ["/og.png"],
   },
 };
 
@@ -38,9 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
         {children}
       </body>
     </html>
