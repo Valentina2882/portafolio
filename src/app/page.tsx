@@ -194,22 +194,22 @@ export default function Home() {
           <nav>
             <ul>
               <li>
-                <a href="#agenda">proyectos</a>
+                <a href="#agenda">Proyectos</a>
               </li>
               <li>
-                <a href="#experiencia">experiencia</a>
+                <a href="#experiencia">Experiencia</a>
               </li>
               <li>
-                <a href="#educacion">educación</a>
+                <a href="#educacion">Educación</a>
               </li>
               <li>
-                <a href="#habilidades">habilidades</a>
+                <a href="#habilidades">Habilidades</a>
               </li>
               <li>
-                <a href="#sobre-mi">sobre mí</a>
+                <a href="#sobre-mi">Sobre mí</a>
               </li>
               <li>
-                <a href="#contacto">contacto</a>
+                <a href="#contacto">Contacto</a>
               </li>
             </ul>
           </nav>
@@ -224,7 +224,7 @@ export default function Home() {
         <section className="hero" id="inicio">
           <div>
             <div className="prompt">
-              $ whoami <span>— ingeniera de software · Pasto, Colombia</span>
+              <span>Ingeniera de software · Pasto, Colombia</span>
             </div>
             <h1>
               Desarrollo aplicaciones para el <em>día a día.</em>
@@ -234,22 +234,22 @@ export default function Home() {
             </p>
             <div className="cta">
               <a className="btn p" href="#agenda">
-                ver proyectos →
+                Ver proyectos →
               </a>
               <span className="cvline">
                 <span className="btn s ghost" aria-disabled="true">
-                  descargar CV ↓
+                  Descargar CV ↓
                 </span>
-                <span className="ex">por confirmar</span>
+                <span className="ex">Por confirmar</span>
               </span>
               <a className="btn s" href="#contacto">
-                escríbeme
+                Escríbeme
               </a>
             </div>
             <div className="meta">
               <span>
                 <i className="dot" />
-                desarrolladora en SITI Soluciones
+                Desarrolladora en SITI Soluciones
               </span>
               <span>React · Flutter · NestJS · Supabase</span>
             </div>
@@ -262,11 +262,11 @@ export default function Home() {
               </div>
               <div>
                 <b>Agenda Bot</b>
-                <small>en línea</small>
+                <small>En línea</small>
               </div>
             </div>
             <div className="msgs">
-              <div className="m me">pagué el gym</div>
+              <div className="m me">Pagué el gym</div>
               <div className="m bot">
                 ¿Marco <b>Gym</b> como pagado este mes?
                 <div className="btns">
@@ -274,7 +274,7 @@ export default function Home() {
                   <span>Cancelar</span>
                 </div>
               </div>
-              <div className="m me">¿me alcanza para unos tenis de 250 mil?</div>
+              <div className="m me">¿Me alcanza para unos tenis de 250 mil?</div>
               <div className="m bot">
                 <span className="ok">Sí te alcanza.</span> Te quedarían libres:
                 <pre>{`Disponible     $ 1.180.000
@@ -286,14 +286,14 @@ Libre          $   510.000`}</pre>
             </div>
             <div className="typing">
               <span>Agenda Bot está escribiendo…</span>
-              <span className="ex">cifras de ejemplo</span>
+              <span className="ex">Cifras de ejemplo</span>
             </div>
           </div>
         </section>
 
         <section id="agenda">
           <h2 className="sec">
-            <b>01</b> / caso estrella
+            <b>01</b> / Proyecto principal
           </h2>
           <article className="case">
             <div className="case-top case-top--photos">
@@ -322,7 +322,7 @@ Libre          $   510.000`}</pre>
                 <a className="btn p" href="https://agendapersonalz.vercel.app/" target="_blank" rel="noopener noreferrer">
                   Ver app ↗
                 </a>
-                <span className="ex">código privado</span>
+                <span className="ex">Código privado</span>
               </div>
             </div>
           </article>
@@ -330,7 +330,7 @@ Libre          $   510.000`}</pre>
 
         <section id="proyectos">
           <div className="sec">
-            <b>02</b> / más proyectos
+            <b>02</b> / Más proyectos
           </div>
           <h2>
             Más <em>proyectos</em>.
@@ -341,7 +341,7 @@ Libre          $   510.000`}</pre>
                 <h3>Rocky</h3>
                 <span className="yr">2026</span>
               </div>
-              <div className="kind">juego web · proyecto personal</div>
+              <div className="kind">Juego web · proyecto personal</div>
               <p>Juego web de un robot y su casa, en un mundo postapocalíptico.</p>
               <div className="strip" aria-label="Capturas de celular de Rocky">
                 {rockyShots.map((shot) => (
@@ -350,7 +350,7 @@ Libre          $   510.000`}</pre>
               </div>
               <Pills items={["React", "TypeScript", "Vite"]} />
               <div className="lk">
-                <span className="ex">código privado</span>
+                <span className="ex">Código privado</span>
               </div>
             </div>
 
@@ -359,7 +359,7 @@ Libre          $   510.000`}</pre>
                 <h3>LearnMate AI</h3>
                 <span className="yr">2025</span>
               </div>
-              <div className="kind">app móvil educativa con IA</div>
+              <div className="kind">App móvil educativa con IA</div>
               <p>App para horarios, exámenes y bienestar en la universidad, con un asistente de IA.</p>
               <div className="strip" aria-label="Capturas de celular de LearnMate">
                 {learnmateShots.map((shot) => (
@@ -383,7 +383,7 @@ Libre          $   510.000`}</pre>
                 <h3>ENERCHAIN</h3>
                 <span className="yr">2025</span>
               </div>
-              <div className="kind">gestión energética · Universidad de Nariño</div>
+              <div className="kind">Gestión energética · Universidad de Nariño</div>
               <p>Sistema de gestión y trazabilidad de información energética, con blockchain.</p>
               <div className="strip" aria-label="Capturas de celular de ENERCHAIN">
                 <PhoneShot
@@ -427,11 +427,11 @@ Libre          $   510.000`}</pre>
                   <h3>MedFinder</h3>
                   <span className="yr">2024</span>
                 </div>
-                <div className="kind">ganador · hackathon Potencia Summit Nariño</div>
+                <div className="kind">Ganador · hackathon Potencia Summit Nariño</div>
                 <p>Plataforma de información de medicamentos con blockchain.</p>
                 <Pills items={["Blockchain", "Smart Contracts"]} />
                 <div className="lk">
-                  <span className="ex">falta enlace de demo</span>
+                  <span className="ex">Falta enlace de demo</span>
                 </div>
               </div>
 
@@ -440,7 +440,7 @@ Libre          $   510.000`}</pre>
                   <h3>Clasificador de cáncer de piel</h3>
                   <span className="yr">2025</span>
                 </div>
-                <div className="kind">investigación · deep learning</div>
+                <div className="kind">Investigación · deep learning</div>
                 <p>Clasifica lesiones de piel con redes neuronales, sobre el dataset HAM10000.</p>
                 <Pills items={["Python", "Deep Learning", "Soft-Attention", "HAM10000"]} />
                 <div className="lk">
@@ -455,7 +455,7 @@ Libre          $   510.000`}</pre>
 
         <section id="experiencia">
           <div className="sec">
-            <b>03</b> / experiencia
+            <b>03</b> / Experiencia
           </div>
           <h2>
             Dónde he <em>trabajado</em>.
@@ -471,7 +471,7 @@ Libre          $   510.000`}</pre>
               </div>
               <div className="job now">
                 <div className="when">
-                  sep 2025 → hoy
+                  Sep 2025 → hoy
                   <small>HEAD · actual</small>
                 </div>
                 <div className="body">
@@ -488,7 +488,7 @@ Libre          $   510.000`}</pre>
                 </div>
               </div>
               <div className="job">
-                <div className="when">feb 2025 → feb 2026</div>
+                <div className="when">Feb 2025 → feb 2026</div>
                 <div className="body">
                   <h4>Desarrolladora Fullstack</h4>
                   <div className="org">Universidad de Nariño · proyecto ENERCHAIN</div>
@@ -509,52 +509,52 @@ Libre          $   510.000`}</pre>
 
         <section id="educacion">
           <div className="sec">
-            <b>04</b> / educación y logros
+            <b>04</b> / Educación y logros
           </div>
           <h2>
             Educación y un <em>premio</em>.
           </h2>
           <div className="edu">
             <div className="box">
-              <div className="k">formación</div>
+              <div className="k">Formación</div>
               <h4>Ingeniería de Software</h4>
               <div className="w">Universidad Cooperativa de Colombia</div>
-              <div className="d">ene 2022 — dic 2025</div>
+              <div className="d">Ene 2022 — dic 2025</div>
             </div>
             <div className="box">
-              <div className="k">diploma</div>
+              <div className="k">Diploma</div>
               <h4>Codificación y Programación</h4>
               <div className="w">Samsung Innovation Campus</div>
-              <div className="d">sep 2021 — mar 2022</div>
+              <div className="d">Sep 2021 — mar 2022</div>
             </div>
             <div className="box win">
-              <div className="k">ganadora · hackathon</div>
+              <div className="k">Ganadora · hackathon</div>
               <h4>Potencia Summit Nariño 2024</h4>
               <div className="w">Proyecto MedFinder</div>
               <p>Equipo ganador con MedFinder.</p>
             </div>
             <div className="box">
-              <div className="k">publicación · 2024</div>
+              <div className="k">Publicación · 2024</div>
               <h4>Exploring Blockchain Technology: Applications and Insights Across Multiple Fields</h4>
               <p>Usos de blockchain en distintos sectores.</p>
               <a href="https://ates.alayen.edu.iq/home/vol1/iss2/10/" target="_blank" rel="noopener noreferrer">
-                leer artículo ↗
+                Leer artículo ↗
               </a>
             </div>
           </div>
           <div className="langs">
             <span>
-              Español · <b>nativo</b>
+              Español · <b>Nativo</b>
             </span>
             <span>
-              Inglés · <b>básico</b>
+              Inglés · <b>Básico</b>
             </span>
           </div>
         </section>
 
         <section id="habilidades">
           <div className="sec">
-            <b>05</b> / habilidades
+            <b>05</b> / Habilidades
           </div>
           <h2>
             Con lo que <em>trabajo</em>.
@@ -582,7 +582,7 @@ Libre          $   510.000`}</pre>
 
         <section id="sobre-mi">
           <div className="sec">
-            <b>06</b> / sobre mí
+            <b>06</b> / Sobre mí
           </div>
           <div className="about">
             <div className="ill">
@@ -609,15 +609,15 @@ Libre          $   510.000`}</pre>
               </p>
               <div className="facts">
                 <div>
-                  <small>base</small>
+                  <small>Base</small>
                   <b>Pasto, CO</b>
                 </div>
                 <div>
-                  <small>ahora</small>
+                  <small>Ahora</small>
                   <b>SITI Soluciones</b>
                 </div>
                 <div>
-                  <small>formación</small>
+                  <small>Formación</small>
                   <b>Ing. de Software</b>
                 </div>
               </div>
@@ -628,7 +628,7 @@ Libre          $   510.000`}</pre>
         <section id="contacto">
           <div className="contact">
             <div className="sec center">
-              <b>07</b> / contacto
+              <b>07</b> / Contacto
             </div>
             <h2>¿Hablamos?</h2>
             <p>Si tienes un proyecto o una vacante, escríbeme.</p>
@@ -639,7 +639,7 @@ Libre          $   510.000`}</pre>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <span>
-                  <small>correo</small>
+                  <small>Correo</small>
                   <b>burbanozarella05@gmail.com</b>
                 </span>
               </a>
@@ -653,7 +653,7 @@ Libre          $   510.000`}</pre>
                   <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" />
                 </svg>
                 <span>
-                  <small>linkedin</small>
+                  <small>Linkedin</small>
                   <b>/in/zarella-burbano</b>
                 </span>
               </a>
@@ -662,7 +662,7 @@ Libre          $   510.000`}</pre>
                   <path d="M12 .5a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .5z" />
                 </svg>
                 <span>
-                  <small>github</small>
+                  <small>Github</small>
                   <b>Valentina2882</b>
                 </span>
               </a>
@@ -673,9 +673,9 @@ Libre          $   510.000`}</pre>
 
       <footer>
         <div className="wrap">
-          <span>© 2026 Zarella Burbano · hecho en Pasto, Colombia</span>
+          <span>© 2026 Zarella Burbano · Hecho en Pasto, Colombia</span>
           <span>
-            <span className="ok">●</span> build ok · Next.js + Vercel
+            <span className="ok">●</span> Build ok · Next.js + Vercel
           </span>
           <span>$ exit</span>
         </div>
