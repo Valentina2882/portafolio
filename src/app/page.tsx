@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MobileMenu from "@/components/MobileMenu";
 
 const agendaShots = [
   {
@@ -213,10 +214,7 @@ export default function Home() {
             </ul>
           </nav>
           <div className="right">
-            <span className="lang">
-              <b>ES</b> / EN
-            </span>
-            <span className="menu">menú ☰</span>
+            <MobileMenu />
           </div>
         </div>
         <div className="stripe" />
@@ -239,7 +237,9 @@ export default function Home() {
                 ver proyectos →
               </a>
               <span className="cvline">
-                <span className="btn s ghost">descargar CV ↓</span>
+                <span className="btn s ghost" aria-disabled="true">
+                  descargar CV ↓
+                </span>
                 <span className="ex">por confirmar</span>
               </span>
               <a className="btn s" href="#contacto">
@@ -292,9 +292,9 @@ Libre          $   510.000`}</pre>
         </section>
 
         <section id="agenda">
-          <div className="sec">
+          <h2 className="sec">
             <b>01</b> / caso estrella
-          </div>
+          </h2>
           <article className="case">
             <div className="case-top case-top--photos">
               <div className="tag">PWA + bot de Telegram + IA · 2026</div>
@@ -322,14 +322,7 @@ Libre          $   510.000`}</pre>
                 <a className="btn p" href="https://agendapersonalz.vercel.app/" target="_blank" rel="noopener noreferrer">
                   Ver app ↗
                 </a>
-                <a
-                  className="btn s"
-                  href="https://github.com/Valentina2882/AgendaPersonal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver código ↗
-                </a>
+                <span className="ex">código privado</span>
               </div>
             </div>
           </article>
@@ -345,7 +338,7 @@ Libre          $   510.000`}</pre>
           <div className="grid">
             <div className="pc wide" id="rocky">
               <div className="h">
-                <h4>Rocky</h4>
+                <h3>Rocky</h3>
                 <span className="yr">2026</span>
               </div>
               <div className="kind">juego web · proyecto personal</div>
@@ -357,15 +350,13 @@ Libre          $   510.000`}</pre>
               </div>
               <Pills items={["React", "TypeScript", "Vite"]} />
               <div className="lk">
-                <a href="https://github.com/Valentina2882/grokcito" target="_blank" rel="noopener noreferrer">
-                  Ver código ↗
-                </a>
+                <span className="ex">código privado</span>
               </div>
             </div>
 
             <div className="pc wide" id="learnmate">
               <div className="h">
-                <h4>LearnMate AI</h4>
+                <h3>LearnMate AI</h3>
                 <span className="yr">2025</span>
               </div>
               <div className="kind">app móvil educativa con IA</div>
@@ -389,7 +380,7 @@ Libre          $   510.000`}</pre>
 
             <div className="pc wide" id="enerchain">
               <div className="h">
-                <h4>ENERCHAIN</h4>
+                <h3>ENERCHAIN</h3>
                 <span className="yr">2025</span>
               </div>
               <div className="kind">gestión energética · Universidad de Nariño</div>
@@ -433,7 +424,7 @@ Libre          $   510.000`}</pre>
             <div className="pc-row pc-row--2" id="otros-proyectos">
               <div className="pc">
                 <div className="h">
-                  <h4>MedFinder</h4>
+                  <h3>MedFinder</h3>
                   <span className="yr">2024</span>
                 </div>
                 <div className="kind">ganador · hackathon Potencia Summit Nariño</div>
@@ -446,7 +437,7 @@ Libre          $   510.000`}</pre>
 
               <div className="pc">
                 <div className="h">
-                  <h4>Clasificador de cáncer de piel</h4>
+                  <h3>Clasificador de cáncer de piel</h3>
                   <span className="yr">2025</span>
                 </div>
                 <div className="kind">investigación · deep learning</div>
