@@ -92,32 +92,32 @@ const learnmateShots = [
 
 const skills = [
   {
-    dir: "lenguajes/",
-    files: ["python", "javascript", "typescript", "php", "dart", "sql", "solidity"],
+    dir: "Lenguajes/",
+    files: ["Python", "JavaScript", "TypeScript", "PHP", "Dart", "SQL", "Solidity"],
   },
   {
-    dir: "frontend-mobile/",
-    files: ["react", "next.js", "angular", "flutter", "vite", "tailwind", "html-css", "pwa"],
+    dir: "Frontend-mobile/",
+    files: ["React", "Next.js", "Angular", "Flutter", "Vite", "Tailwind", "HTML/CSS", "PWA"],
   },
   {
-    dir: "backend-apis/",
-    files: ["django", "nestjs", "node.js", "fastapi", "rest", "swagger", "jwt", "oauth"],
+    dir: "Backend-apis/",
+    files: ["Django", "NestJS", "Node.js", "FastAPI", "REST", "Swagger", "JWT", "OAuth"],
   },
   {
-    dir: "bases-de-datos/",
-    files: ["postgresql", "mysql", "sqlite", "supabase", "rls"],
+    dir: "Bases-de-datos/",
+    files: ["PostgreSQL", "MySQL", "SQLite", "Supabase", "RLS"],
   },
   {
-    dir: "ia-datos/",
-    files: ["pandas", "numpy", "scikit-learn", "tensorflow", "matplotlib", "deep-learning", "gemini"],
+    dir: "Ia-datos/",
+    files: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Matplotlib", "Deep Learning", "Gemini"],
   },
   {
-    dir: "blockchain-web3/",
-    files: ["smart-contracts", "web3.js", "ethereum"],
+    dir: "Blockchain-web3/",
+    files: ["Smart Contracts", "Web3.js", "Ethereum"],
   },
   {
-    dir: "devops-herramientas/",
-    files: ["git", "github", "docker", "linux", "postman"],
+    dir: "Devops-herramientas/",
+    files: ["Git", "GitHub", "Docker", "Linux", "Postman"],
   },
 ] as const;
 
@@ -223,9 +223,7 @@ export default function Home() {
       <main className="wrap">
         <section className="hero" id="inicio">
           <div>
-            <div className="prompt">
-              <span>Ingeniera de software · Pasto, Colombia</span>
-            </div>
+            <div className="prompt">Ingeniera de software · Pasto, Colombia</div>
             <h1>
               Desarrollo aplicaciones para el <em>día a día.</em>
             </h1>
@@ -653,7 +651,7 @@ Libre          $   510.000`}</pre>
                   <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" />
                 </svg>
                 <span>
-                  <small>Linkedin</small>
+                  <small>LinkedIn</small>
                   <b>/in/zarella-burbano</b>
                 </span>
               </a>
@@ -662,7 +660,7 @@ Libre          $   510.000`}</pre>
                   <path d="M12 .5a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .5z" />
                 </svg>
                 <span>
-                  <small>Github</small>
+                  <small>GitHub</small>
                   <b>Valentina2882</b>
                 </span>
               </a>
@@ -677,7 +675,6 @@ Libre          $   510.000`}</pre>
           <span>
             <span className="ok">●</span> Build ok · Next.js + Vercel
           </span>
-          <span>$ exit</span>
         </div>
       </footer>
     </>
