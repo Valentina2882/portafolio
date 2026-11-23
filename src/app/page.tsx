@@ -386,18 +386,6 @@ Libre          $   510.000`}</pre>
                   sizes="(max-width: 700px) 42vw, 168px"
                 />
               </div>
-              <div className="desk-row" aria-label="Capturas de escritorio de ENERCHAIN">
-                <DeskShot
-                  src="/projects/enerchain/03_desktop_inicio.png"
-                  alt="Inicio de sesión de ENERCHAIN en escritorio"
-                  caption="Inicio en escritorio"
-                />
-                <DeskShot
-                  src="/projects/enerchain/04_desktop_registro.png"
-                  alt="Registro de ENERCHAIN en escritorio, con tipos de usuario"
-                  caption="Registro en escritorio"
-                />
-              </div>
               <Pills
                 items={["Solidity", "Django", "NestJS", "Angular", "Next.js", "PostgreSQL", "Docker"]}
               />
