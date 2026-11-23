@@ -20,7 +20,15 @@ No hay otro motivo escrito. La maqueta `design-ref/terminal-andina-v4.html` y `p
 
 El PR las agregó junto con la referencia Terminal Andina. `PhoneShot` en `src/app/page.tsx` las mete en un marco de celular.
 
-ENERCHAIN usa además `DeskShot` para dos capturas de escritorio. No hay un motivo escrito para elegir celular, más allá de seguir esa referencia. MedFinder y el clasificador no tienen capturas.
+En el corte del PR #1, ENERCHAIN también usaba `DeskShot` para dos capturas de escritorio. El PR #4 las quitó de la página. MedFinder y el clasificador no tienen capturas.
+
+## ENERCHAIN solo con capturas de celular
+
+El cuerpo del [PR #4](https://github.com/Valentina2882/portafolio/pull/4) dice: «Por pedido de Zare, quita las dos capturas de escritorio de ENERCHAIN y deja solo las de celular y el botón de demo.»
+
+En el código se fue el bloque `desk-row` y la función `DeskShot`. Quedan dos `PhoneShot`, las pills y el enlace «Ver demo».
+
+Según Desarrollo, el backend de registro de Julian está caído y por eso Zare prefirió dejar solo el celular. Ese motivo no está en el PR.
 
 ## Código privado
 

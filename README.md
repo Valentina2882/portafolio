@@ -102,7 +102,7 @@ Para reemplazarlo, deja el PDF nuevo con ese mismo nombre en `public/`. Si cambi
 - AgendaPersonal: app en [https://agendapersonalz.vercel.app/](https://agendapersonalz.vercel.app/). Ya no dice «Código privado» ni habla de una cuenta demo. Seis capturas de celular.
 - Rocky: sin enlace y sin la etiqueta «Código privado». Cuatro capturas de celular.
 - LearnMate AI: código en [https://github.com/Valentina2882/LearnMateAI_frontend](https://github.com/Valentina2882/LearnMateAI_frontend). Seis capturas de celular. El párrafo de la portada lo nombra «LearnMate».
-- ENERCHAIN: demo en [https://mte-frontend.vercel.app/](https://mte-frontend.vercel.app/). Dos capturas de celular y dos de escritorio.
+- ENERCHAIN: demo en [https://mte-frontend.vercel.app/](https://mte-frontend.vercel.app/). Dos capturas de celular. Las de escritorio ya no se muestran.
 - MedFinder: sin URL de demo y sin capturas. El aviso «Falta enlace de demo» ya no está.
 - Clasificador de cáncer de piel: código en [https://github.com/Valentina2882/RepoCancerPiel](https://github.com/Valentina2882/RepoCancerPiel). Sin capturas.
 

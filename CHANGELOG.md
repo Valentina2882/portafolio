@@ -9,6 +9,23 @@ Las fechas están en hora de Colombia (America/Bogota, UTC-5).
 
 Nada de producto pendiente de fusionar. Lo que falta está en [docs/backlog.md](docs/backlog.md).
 
+## [2026-11-23 10:32]
+
+ENERCHAIN queda solo con capturas de celular. Fusionado a `main` a las 10:32:01, squash `556b3eff` ([PR #4](https://github.com/Valentina2882/portafolio/pull/4)). La cabeza del PR era `2dee712e`. GitHub marca el merge a las 10:32:02.
+
+### Cambiado
+
+- Se quitó el bloque `desk-row` de ENERCHAIN y la función `DeskShot`, que ya no se usaba. El diff solo toca `src/app/page.tsx`.
+- Quedan las dos capturas de celular (`01_mobile_inicio.png` y `02_mobile_registro.png`), las pills (Solidity, Django, NestJS, Angular, Next.js, PostgreSQL, Docker) y «Ver demo», que sigue en [https://mte-frontend.vercel.app/](https://mte-frontend.vercel.app/).
+
+### Eliminado de la página
+
+- «Inicio en escritorio» y «Registro en escritorio».
+
+No se borraron el CSS `.desk*` de `src/app/globals.css` ni los archivos `public/projects/enerchain/03_desktop_inicio.png` y `04_desktop_registro.png`. La página ya no los usa. La maqueta `design-ref/terminal-andina-v4.html` todavía los muestra.
+
+El cuerpo del PR dice que el cambio lo pidió Zare y que deja las capturas de celular y el botón de demo. Según Desarrollo, el backend de registro de Julian está caído y por eso Zare prefirió solo el celular. Eso no está en el PR. El PR no tiene reviews ni una nota de deploy.
+
 ## [2026-11-23 09:00]
 
 Stack del hero de SITI Soluciones. Fusionado a `main` a las 09:00:50, squash `7215d70f` ([PR #3](https://github.com/Valentina2882/portafolio/pull/3)). La cabeza del PR era `0c21f848`. GitHub marca el merge a las 09:00:51.
@@ -59,7 +76,7 @@ Rediseño «Terminal Andina», fusionado a `main` a las 18:40, squash `b29062e` 
 
 - Cabecera con «Zarella Burbano» y título «Desarrollo aplicaciones para el día a día.». Debajo del nombre, en la portada, va la línea «Ingeniera de software · Pasto, Colombia».
 - Secciones con ancla: Proyecto principal (AgendaPersonal), Más proyectos (Rocky, LearnMate AI, ENERCHAIN, MedFinder y Clasificador de cáncer de piel), Experiencia, Educación y logros, Habilidades, Sobre mí y Contacto.
-- Capturas en marco de celular para AgendaPersonal, Rocky, LearnMate AI y ENERCHAIN. ENERCHAIN también tiene dos capturas de escritorio. MedFinder y el clasificador no tienen fotos.
+- Capturas en marco de celular para AgendaPersonal, Rocky, LearnMate AI y ENERCHAIN. En ese corte ENERCHAIN también tenía dos capturas de escritorio. El [corte de las 10:32](#2026-11-23-1032) las quitó de la página. MedFinder y el clasificador no tienen fotos.
 - Menú móvil en `src/components/MobileMenu.tsx`, visible por debajo de 700px. Lista las siete secciones, usa `aria-expanded` y `aria-controls`, se cierra con Escape y devuelve el foco al botón.
 - Etiqueta «Código privado» en AgendaPersonal y Rocky. Solo AgendaPersonal avisa que el repositorio sigue privado y que falta una cuenta demo.
 - Botón de CV deshabilitado (`aria-disabled`) con la etiqueta «Por confirmar». No hay archivo de CV.

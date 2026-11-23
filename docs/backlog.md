@@ -1,6 +1,6 @@
 # Pendientes
 
-Estado en `main` después del squash `7215d70f` (23 de noviembre de 2026, 09:00:50, hora de Colombia).
+Estado en `main` después del squash `556b3eff` (23 de noviembre de 2026, 10:32:01, hora de Colombia).
 
 ## Cerrados
 
@@ -13,6 +13,16 @@ Cerrado en el PR #2. «Descargar CV ↓» enlaza a `/Zarella_Burbano_CV.pdf` con
 Cerrada en el PR #2: se quitó la nota. También se quitó «Código privado» en AgendaPersonal y en Rocky. No hay usuario ni clave de demo en el repo. «Ver app» sigue en [https://agendapersonalz.vercel.app/](https://agendapersonalz.vercel.app/).
 
 ## Abiertos
+
+### Limpiar CSS e imágenes de escritorio de ENERCHAIN
+
+La página ya no usa `DeskShot` ni `desk-row`. En `src/` las clases `.desk`, `.desk-row`, `.desk-bar` y `.desk-cap` solo quedan en `src/app/globals.css`.
+
+Los archivos `public/projects/enerchain/03_desktop_inicio.png` y `04_desktop_registro.png` siguen en el repo. `src/` no los nombra. Sí los usa la maqueta `design-ref/terminal-andina-v4.html`, que también conserva su propio CSS `.desk*` y el bloque de escritorio. La app no sirve esa maqueta.
+
+### Revisar la demo de ENERCHAIN
+
+«Ver demo» sigue en [https://mte-frontend.vercel.app/](https://mte-frontend.vercel.app/). Según Desarrollo, el backend de registro de Julian está caído. El PR no lo dice. Hay que revisarlo antes de dar el enlace por bueno.
 
 ### Regenerar og.png
 
