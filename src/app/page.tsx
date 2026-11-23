@@ -234,12 +234,9 @@ export default function Home() {
               <a className="btn p" href="#agenda">
                 Ver proyectos →
               </a>
-              <span className="cvline">
-                <span className="btn s ghost" aria-disabled="true">
-                  Descargar CV ↓
-                </span>
-                <span className="ex">Por confirmar</span>
-              </span>
+              <a className="btn s" href="/Zarella_Burbano_CV.pdf" download>
+                Descargar CV ↓
+              </a>
               <a className="btn s" href="#contacto">
                 Escríbeme
               </a>
@@ -284,7 +281,6 @@ Libre          $   510.000`}</pre>
             </div>
             <div className="typing">
               <span>Agenda Bot está escribiendo…</span>
-              <span className="ex">Cifras de ejemplo</span>
             </div>
           </div>
         </section>
@@ -312,15 +308,10 @@ Libre          $   510.000`}</pre>
               </div>
             </div>
             <div className="case-bot">
-              <div className="note">
-                El repositorio todavía es privado y todavía falta una cuenta demo para entrar a la app sin usar una
-                cuenta personal.
-              </div>
               <div className="case-cta">
                 <a className="btn p" href="https://agendapersonalz.vercel.app/" target="_blank" rel="noopener noreferrer">
                   Ver app ↗
                 </a>
-                <span className="ex">Código privado</span>
               </div>
             </div>
           </article>
@@ -347,9 +338,6 @@ Libre          $   510.000`}</pre>
                 ))}
               </div>
               <Pills items={["React", "TypeScript", "Vite"]} />
-              <div className="lk">
-                <span className="ex">Código privado</span>
-              </div>
             </div>
 
             <div className="pc wide" id="learnmate">
@@ -428,9 +416,6 @@ Libre          $   510.000`}</pre>
                 <div className="kind">Ganador · hackathon Potencia Summit Nariño</div>
                 <p>Plataforma de información de medicamentos con blockchain.</p>
                 <Pills items={["Blockchain", "Smart Contracts"]} />
-                <div className="lk">
-                  <span className="ex">Falta enlace de demo</span>
-                </div>
               </div>
 
               <div className="pc">
