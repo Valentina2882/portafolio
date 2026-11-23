@@ -1,6 +1,6 @@
 # Decisiones
 
-Solo lo que está escrito en el [PR #1](https://github.com/Valentina2882/portafolio/pull/1) o se ve en el código. Si el motivo no está escrito, no se inventa.
+Solo lo que está escrito en el [PR #1](https://github.com/Valentina2882/portafolio/pull/1), el [PR #2](https://github.com/Valentina2882/portafolio/pull/2) o se ve en el código. Si el motivo no está escrito, no se inventa.
 
 ## Una sola página con scroll
 
@@ -24,12 +24,20 @@ ENERCHAIN usa además `DeskShot` para dos capturas de escritorio. No hay un moti
 
 ## Código privado
 
-El mismo commit de revisión dice que AgendaPersonal y Rocky quedan como código privado. En la página los dos muestran «Código privado».
+El commit de revisión del PR #1 dice que AgendaPersonal y Rocky quedan como código privado. En ese corte la página mostraba «Código privado» en los dos. AgendaPersonal, además, avisaba que el repositorio seguía privado y que faltaba una cuenta demo.
 
-AgendaPersonal, además, tiene esta nota: el repositorio sigue privado y falta una cuenta demo para entrar sin una cuenta personal. Aun así hay enlace a la app. Rocky no tiene enlace a código ni a demo.
+El PR #2 quitó esas etiquetas y la nota. El commit dice que quita los avisos de pendiente. No explica otro motivo. AgendaPersonal conserva el enlace «Ver app». Rocky sigue sin enlace.
 
 ## Menú móvil
 
 El commit de revisión dice que el menú abre y cierra las siete secciones. Un commit posterior dice que Escape devuelve el foco al botón. Eso está en `src/components/MobileMenu.tsx`.
 
 El botón solo aparece por debajo de 700px. El menú de escritorio no repite las mismas etiquetas: dice «Proyectos» y apunta a `#agenda`.
+
+## Volver arriba mueve el foco al logo
+
+`src/components/BackToTop.tsx` hace dos cosas al pulsar: busca `a.logo` y le hace `focus({ preventScroll: true })`, y después `window.scrollTo({ top: 0 })`.
+
+El commit «Mueve el foco al logo antes de volver arriba» dice por qué: «Así Chrome no cancela el scroll suave cuando el botón se oculta a mitad de camino.»
+
+El scroll es `smooth`, salvo si `prefers-reduced-motion: reduce`, en cuyo caso es `auto`. El botón se muestra cuando `scrollY` pasa el alto de la ventana. El `aria-label` es «Volver arriba».
