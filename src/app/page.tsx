@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BackToTop from "@/components/BackToTop";
 import MobileMenu from "@/components/MobileMenu";
 
 const agendaShots = [
@@ -651,7 +652,7 @@ Libre          $   510.000`}</pre>
                 </svg>
                 <span>
                   <small>LinkedIn</small>
-                  <b>/in/zarella-burbano</b>
+                  <b>/zarella-burbano</b>
                 </span>
               </a>
               <a className="clink" href="https://github.com/Valentina2882" target="_blank" rel="noopener noreferrer">
@@ -673,6 +674,7 @@ Libre          $   510.000`}</pre>
           <span>© 2026 Zarella Burbano · Hecho en Pasto, Colombia</span>
         </div>
       </footer>
+      <BackToTop />
     </>
   );
 }
