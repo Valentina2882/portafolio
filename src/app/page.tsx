@@ -247,7 +247,7 @@ export default function Home() {
                 <i className="dot" />
                 Desarrolladora en SITI Soluciones
               </span>
-              <span>React · Flutter · NestJS · Supabase</span>
+              <span>PHP · MySQL · Flutter</span>
             </div>
           </div>
 
