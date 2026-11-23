@@ -6,7 +6,7 @@ Es una sola ruta: `src/app/page.tsx`. La página se recorre con scroll y anclas.
 
 Producción, según Desarrollo: [https://portafoliozare.vercel.app/](https://portafoliozare.vercel.app/). Esa misma URL está en `metadataBase` de `src/app/layout.tsx`.
 
-El rediseño «Terminal Andina» se fusionó a `main` el 22 de noviembre de 2026 a las 18:40 (hora de Colombia, UTC-5), squash `b29062e`. El mismo día, a las 19:30:08, entró el squash `1b5ef903` ([PR #2](https://github.com/Valentina2882/portafolio/pull/2)): CV descargable, WhatsApp, pie centrado y botón de volver arriba. Ver [CHANGELOG.md](CHANGELOG.md).
+El rediseño «Terminal Andina» se fusionó a `main` el 22 de noviembre de 2026 a las 18:40 (hora de Colombia, UTC-5), squash `b29062e`. El mismo día, a las 19:30:08, entró el squash `1b5ef903` ([PR #2](https://github.com/Valentina2882/portafolio/pull/2)): CV descargable, WhatsApp, pie centrado y botón de volver arriba. El 23 de noviembre de 2026, a las 09:00:50, el squash `7215d70f` ([PR #3](https://github.com/Valentina2882/portafolio/pull/3)) dejó la línea de SITI Soluciones en la portada como «PHP · MySQL · Flutter». Se edita en el hero de `src/app/page.tsx`. Ver [CHANGELOG.md](CHANGELOG.md).
 
 ## Stack
 

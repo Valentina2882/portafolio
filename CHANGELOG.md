@@ -9,6 +9,19 @@ Las fechas están en hora de Colombia (America/Bogota, UTC-5).
 
 Nada de producto pendiente de fusionar. Lo que falta está en [docs/backlog.md](docs/backlog.md).
 
+## [2026-11-23 09:00]
+
+Stack del hero de SITI Soluciones. Fusionado a `main` a las 09:00:50, squash `7215d70f` ([PR #3](https://github.com/Valentina2882/portafolio/pull/3)). La cabeza del PR era `0c21f848`. GitHub marca el merge a las 09:00:51.
+
+### Cambiado
+
+- En la portada, la línea junto a «Desarrolladora en SITI Soluciones» pasó de «React · Flutter · NestJS · Supabase» a «PHP · MySQL · Flutter». Está en el hero de `src/app/page.tsx`.
+- El cuerpo del PR dice que el cambio lo pidió Zare y que solo cambia texto.
+
+No se tocó la sección Experiencia. Ahí SITI sigue con las pastillas PHP, SQL, Flutter, Dart, React, Gemini AI y HeidiSQL, y el texto habla de PHP, SQL, Flutter y Gemini. Tampoco cambió `public/og.png` ni `design-ref/terminal-andina-v4.html`: los dos siguen con «React · Flutter · NestJS · Supabase».
+
+Según Desarrollo, Calidad y Pruebas aprobaron, Zare confirmó y producción salió en success. El PR no tiene reviews. El bot de Vercel marcó Ready el preview de la rama a las 08:56, antes del merge. El pedido de Zare para este texto sí está en el cuerpo del PR.
+
 ## [2026-11-22 19:30]
 
 CV, WhatsApp y botón de volver arriba. Fusionado a `main` a las 19:30:08, squash `1b5ef903` ([PR #2](https://github.com/Valentina2882/portafolio/pull/2)). La cabeza del PR era `3349b566`.

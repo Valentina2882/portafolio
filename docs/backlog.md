@@ -1,6 +1,6 @@
 # Pendientes
 
-Estado en `main` después del squash `1b5ef903` (22 de noviembre de 2026, 19:30:08, hora de Colombia).
+Estado en `main` después del squash `7215d70f` (23 de noviembre de 2026, 09:00:50, hora de Colombia).
 
 ## Cerrados
 
@@ -16,9 +16,18 @@ Cerrada en el PR #2: se quitó la nota. También se quitó «Código privado» e
 
 ### Regenerar og.png
 
-`public/og.png` no cambió en el PR #2. `src/app/layout.tsx` lo sigue usando en Open Graph y Twitter (1200×630).
+`public/og.png` no cambió en el PR #2 ni en el PR #3. `src/app/layout.tsx` lo sigue usando en Open Graph y Twitter (1200×630).
 
-La imagen sigue en el corte viejo: selector «ES / EN», «$ whoami — ingeniera de software · Pasto, Colombia» y textos en minúscula, incluido «por confirmar». La página ya no tiene «ES / EN» ni «Por confirmar», y el CV se descarga.
+La imagen sigue en el corte viejo: selector «ES / EN», «$ whoami — ingeniera de software · Pasto, Colombia», textos en minúscula (incluido «por confirmar») y el stack «React · Flutter · NestJS · Supabase». La portada ya dice «PHP · MySQL · Flutter», no tiene «ES / EN» ni «Por confirmar», y el CV se descarga.
+
+### Stack viejo de SITI fuera del hero
+
+El PR #3 solo cambió el hero. La frase «React · Flutter · NestJS · Supabase» sigue en:
+
+- `public/og.png`
+- `design-ref/terminal-andina-v4.html` (la maqueta; la app no la sirve)
+
+Experiencia no tiene esa frase. El puesto de SITI Soluciones sigue con las pastillas PHP, SQL, Flutter, Dart, React, Gemini AI y HeidiSQL. El texto dice backend con PHP y SQL, apps en Flutter y lectura con Gemini. No dice MySQL. No coincide con la línea nueva del hero.
 
 ### Etiquetas de Habilidades
 
