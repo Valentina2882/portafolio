@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BackToTop from "@/components/BackToTop";
 import MobileMenu from "@/components/MobileMenu";
 
 const agendaShots = [
@@ -234,12 +235,9 @@ export default function Home() {
               <a className="btn p" href="#agenda">
                 Ver proyectos →
               </a>
-              <span className="cvline">
-                <span className="btn s ghost" aria-disabled="true">
-                  Descargar CV ↓
-                </span>
-                <span className="ex">Por confirmar</span>
-              </span>
+              <a className="btn s" href="/Zarella_Burbano_CV.pdf" download>
+                Descargar CV ↓
+              </a>
               <a className="btn s" href="#contacto">
                 Escríbeme
               </a>
@@ -284,7 +282,6 @@ Libre          $   510.000`}</pre>
             </div>
             <div className="typing">
               <span>Agenda Bot está escribiendo…</span>
-              <span className="ex">Cifras de ejemplo</span>
             </div>
           </div>
         </section>
@@ -312,15 +309,10 @@ Libre          $   510.000`}</pre>
               </div>
             </div>
             <div className="case-bot">
-              <div className="note">
-                El repositorio todavía es privado y todavía falta una cuenta demo para entrar a la app sin usar una
-                cuenta personal.
-              </div>
               <div className="case-cta">
                 <a className="btn p" href="https://agendapersonalz.vercel.app/" target="_blank" rel="noopener noreferrer">
                   Ver app ↗
                 </a>
-                <span className="ex">Código privado</span>
               </div>
             </div>
           </article>
@@ -347,9 +339,6 @@ Libre          $   510.000`}</pre>
                 ))}
               </div>
               <Pills items={["React", "TypeScript", "Vite"]} />
-              <div className="lk">
-                <span className="ex">Código privado</span>
-              </div>
             </div>
 
             <div className="pc wide" id="learnmate">
@@ -428,9 +417,6 @@ Libre          $   510.000`}</pre>
                 <div className="kind">Ganador · hackathon Potencia Summit Nariño</div>
                 <p>Plataforma de información de medicamentos con blockchain.</p>
                 <Pills items={["Blockchain", "Smart Contracts"]} />
-                <div className="lk">
-                  <span className="ex">Falta enlace de demo</span>
-                </div>
               </div>
 
               <div className="pc">
@@ -643,6 +629,20 @@ Libre          $   510.000`}</pre>
               </a>
               <a
                 className="clink"
+                href="https://wa.me/573225204858"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.52 3.48A11.86 11.86 0 0012.06 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.9 11.9 0 005.76 1.47h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.16-3.45-8.44zM12.07 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.82 9.82 0 012.89 7c0 5.45-4.44 9.88-9.9 9.88zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z" />
+                </svg>
+                <span>
+                  <small>WhatsApp</small>
+                  <b>+57 322 520 4858</b>
+                </span>
+              </a>
+              <a
+                className="clink"
                 href="https://www.linkedin.com/in/zarella-burbano/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -652,7 +652,7 @@ Libre          $   510.000`}</pre>
                 </svg>
                 <span>
                   <small>LinkedIn</small>
-                  <b>/in/zarella-burbano</b>
+                  <b>/zarella-burbano</b>
                 </span>
               </a>
               <a className="clink" href="https://github.com/Valentina2882" target="_blank" rel="noopener noreferrer">
@@ -672,11 +672,9 @@ Libre          $   510.000`}</pre>
       <footer>
         <div className="wrap">
           <span>© 2026 Zarella Burbano · Hecho en Pasto, Colombia</span>
-          <span>
-            <span className="ok">●</span> Build ok · Next.js + Vercel
-          </span>
         </div>
       </footer>
+      <BackToTop />
     </>
   );
 }
