@@ -155,24 +155,6 @@ function PhoneShot({
   );
 }
 
-function DeskShot({ src, alt, caption }: { src: string; alt: string; caption: string }) {
-  return (
-    <div>
-      <div className="desk">
-        <div className="desk-bar" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </div>
-        <div className="shot">
-          <Image src={src} alt={alt} fill sizes="(max-width: 700px) 100vw, 520px" />
-        </div>
-      </div>
-      <div className="desk-cap">{caption}</div>
-    </div>
-  );
-}
-
 function WindowDots() {
   return (
     <>
@@ -384,18 +366,6 @@ Libre          $   510.000`}</pre>
                   alt="Registro público de ENERCHAIN en celular, con tipos de usuario"
                   caption="Registro"
                   sizes="(max-width: 700px) 42vw, 168px"
-                />
-              </div>
-              <div className="desk-row" aria-label="Capturas de escritorio de ENERCHAIN">
-                <DeskShot
-                  src="/projects/enerchain/03_desktop_inicio.png"
-                  alt="Inicio de sesión de ENERCHAIN en escritorio"
-                  caption="Inicio en escritorio"
-                />
-                <DeskShot
-                  src="/projects/enerchain/04_desktop_registro.png"
-                  alt="Registro de ENERCHAIN en escritorio, con tipos de usuario"
-                  caption="Registro en escritorio"
                 />
               </div>
               <Pills
