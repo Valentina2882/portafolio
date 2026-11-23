@@ -155,24 +155,6 @@ function PhoneShot({
   );
 }
 
-function DeskShot({ src, alt, caption }: { src: string; alt: string; caption: string }) {
-  return (
-    <div>
-      <div className="desk">
-        <div className="desk-bar" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </div>
-        <div className="shot">
-          <Image src={src} alt={alt} fill sizes="(max-width: 700px) 100vw, 520px" />
-        </div>
-      </div>
-      <div className="desk-cap">{caption}</div>
-    </div>
-  );
-}
-
 function WindowDots() {
   return (
     <>
